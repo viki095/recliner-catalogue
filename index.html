@@ -9,11 +9,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="images/awicon-icon.png">
+  <link rel="apple-touch-icon" href="images/awicon-icon.png">
 </head>
 <body>
   <header class="site-header">
     <div class="wrap header-inner">
-      <a class="logo" href="#" id="logo"></a>
+      <a class="logo" href="#" id="logo" aria-label="Awicon Technologies">
+        <picture>
+          <source srcset="images/awicon-logo-white.png" media="(prefers-color-scheme: dark)">
+          <img src="images/awicon-logo.png" alt="Awicon Technologies" width="480" height="240">
+        </picture>
+      </a>
       <button class="shortlist-btn" id="openShortlist" type="button" aria-haspopup="dialog">
         Shortlist <span class="count" id="shortlistCount">0</span>
       </button>
@@ -111,6 +118,7 @@
   <dialog class="drawer" id="shortlistDialog" aria-labelledby="sTitle">
     <div class="drawer-inner">
       <div class="drawer-head">
+        <img class="print-logo" src="images/awicon-logo.png" alt="Awicon Technologies" width="480" height="240">
         <p class="eyebrow">Your selection</p>
         <h2 id="sTitle">Shortlist</h2>
         <button class="close" type="button" id="closeShortlist" aria-label="Close">×</button>

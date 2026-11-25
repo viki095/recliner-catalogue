@@ -56,8 +56,10 @@ a { color: inherit; }
   background: color-mix(in srgb, var(--bg) 90%, transparent);
   backdrop-filter: blur(10px); border-bottom: 1px solid var(--line);
 }
-.header-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-.logo { font-size: 15px; font-weight: 500; letter-spacing: .28em; text-transform: uppercase; text-decoration: none; }
+.header-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+.logo { display: block; line-height: 0; }
+.logo img { height: 40px; width: auto; display: block; }
+.print-logo { display: none; }
 .shortlist-btn {
   display: inline-flex; align-items: center; gap: 10px; cursor: pointer; background: none;
   border: 0; border-bottom: 1px solid transparent; padding: 6px 0;
@@ -275,4 +277,5 @@ legend { color: var(--gold); font-size: 11px; font-weight: 500; letter-spacing: 
   .drawer[open] { position: static; width: 100%; }
   .drawer-inner { height: auto; box-shadow: none; }
   .drawer-list { overflow: visible; }
+  .print-logo { display: block; height: 56px; width: auto; margin-bottom: 18px; }
 }

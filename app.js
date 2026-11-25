@@ -145,7 +145,6 @@
 
   /* ---------- static text ---------- */
   document.title = `${S.pageTitle} | ${S.companyName}`;
-  $("logo").textContent = S.companyName;
   $("eyebrow").textContent = S.eyebrow || "";
   $("heroTitle").textContent = S.pageTitle;
   $("sampleNotice").hidden = !S.sampleData;
