@@ -425,8 +425,9 @@
           ${g.choices.map((ch) => `<label><input type="radio" name="o-${m.id}-${g.id}" data-opt="${m.id}|${g.id}" value="${ch.id}" ${c.opt[g.id] === ch.id ? "checked" : ""}>
             <span>${esc(ch.name)}<small>${ch.add ? (ch.add > 0 ? "+" : "−") + money(Math.abs(ch.add)) + " / seat" : "Included"}</small></span></label>`).join("")}
         </div></fieldset>`).join("")}
-        <fieldset><legend>Accessories</legend><div class="acc-list">
-          ${m.accessories.filter((id) => C.accessories[id]).map((id) => {
+        ${touchpointsHtml(m, n)}
+        <fieldset><legend>${b.touchpoints ? "More accessories" : "Accessories"}</legend><div class="acc-list">
+          ${m.accessories.filter((id) => C.accessories[id] && !tpItems(m).includes(id)).map((id) => {
             const a = C.accessories[id], q = c.acc[id] || 0;
             if (a.perSeat === false) return `<div class="acc-once"><span class="acc-name">${esc(a.name)}<small>${money(a.price)} each</small></span>${stepper("acc:" + m.id + ":" + id, q, 0, 20, a.name)}</div>`;
             return `<label><input type="checkbox" data-acc="${m.id}|${id}" ${q ? "checked" : ""}>
@@ -436,6 +437,33 @@
         </div></fieldset>
       </section>`;
     }).join("");
+  }
+
+
+  // "Tap + on the recliner": brands with touchpoints get a drawing with + hotspots.
+  const tpItems = (m) => (brandById[m.brand].touchpoints || []).flatMap((t) => t.items);
+  const tpOpen = {};
+  function touchpointsHtml(m, n) {
+    const tps = (brandById[m.brand].touchpoints || []).map((t) => ({ ...t, items: t.items.filter((id) => m.accessories.includes(id) && C.accessories[id]) })).filter((t) => t.items.length);
+    if (!tps.length) return "";
+    const c = custom(m.id), open = tps.find((t) => t.id === tpOpen[m.id]) || null;
+    const on = (t) => t.items.filter((id) => c.acc[id]);
+    const dots = tps.map((t, i) => {
+      const k = on(t).length;
+      return `<button type="button" class="tp-dot${k ? " has" : ""}${open && open.id === t.id ? " open" : ""}" style="left:${t.x}%;top:${t.y}%" data-tp="${m.id}|${t.id}" aria-label="${esc(t.name)}${k ? ", " + k + " chosen" : ""}" aria-expanded="${!!(open && open.id === t.id)}"><span>${k ? "✓" : "+"}</span></button>`;
+    }).join("");
+    const panel = open ? `<div class="tp-panel">
+        <div class="tp-head"><p class="eyebrow">${esc(open.name)}</p><span class="muted small">${open.one ? "Choose one" : "Choose any"} · price per seat × ${n}</span></div>
+        <div class="tp-opts">
+          ${open.one ? `<button type="button" class="tp-opt${on(open).length ? "" : " on"}" data-tpitem="${m.id}|${open.id}|"><span>Standard</span><small>Included</small></button>` : ""}
+          ${open.items.map((id) => { const a = C.accessories[id]; return `<button type="button" class="tp-opt${c.acc[id] ? " on" : ""}" data-tpitem="${m.id}|${open.id}|${id}" aria-pressed="${!!c.acc[id]}"><span>${esc(a.name)}</span><small>+${money(a.price)} / seat</small></button>`; }).join("")}
+        </div></div>` : `<p class="hint tp-hint">Tap a + on the recliner to customise it.</p>`;
+    const chosenList = tps.flatMap((t) => on(t).map((id) => C.accessories[id].name));
+    return `<fieldset class="tp"><legend>Customise your comfort</legend>
+      <div class="tp-wrap"><div class="tp-stage">${window.Drawings.sideProfile(m.profile === "lounger" ? "lounger" : "highback")}${dots}</div>
+      <div class="tp-side">${panel}
+        <p class="tp-chosen">${chosenList.length ? "Chosen: " + esc(chosenList.join(", ")) : "Nothing added yet."}</p></div></div>
+    </fieldset>`;
   }
 
   // 7 Summary
@@ -548,6 +576,18 @@
       const rows = st.target === "all" ? st.rows : [st.rows[+st.target]];
       rows.forEach((r) => { r.model = t.dataset.model; });
       custom(t.dataset.model);
+      return render();
+    }
+    if (t.dataset.tp) {
+      const [mid, tid] = t.dataset.tp.split("|");
+      tpOpen[mid] = tpOpen[mid] === tid ? null : tid;
+      return renderCustoms();
+    }
+    if (t.dataset.tpitem != null) {
+      const [mid, tid, id] = t.dataset.tpitem.split("|"), c = custom(mid);
+      const tp = brandById[modelById[mid].brand].touchpoints.find((x) => x.id === tid);
+      if (tp.one) { tp.items.forEach((x) => { c.acc[x] = 0; }); if (id) c.acc[id] = 1; }
+      else if (id) c.acc[id] = c.acc[id] ? 0 : 1;
       return render();
     }
     if (t.dataset.mat) {

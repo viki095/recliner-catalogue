@@ -253,3 +253,32 @@ body[data-at="7"] .p-side { display: none; }
   .planner .print-logo { display: block; height: 56px; width: auto; margin-bottom: 18px; }
   .planner .sum-grid { grid-template-columns: 1fr 1fr; }
 }
+
+/* Tap + on the recliner (touchpoints) */
+.tp-wrap { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 18px; align-items: start; }
+.tp-stage { position: relative; background: var(--tile); border-radius: var(--radius); color: #1C1A17; padding: 8px; }
+.tp-stage svg { width: 100%; height: auto; display: block; }
+.tp-dot {
+  position: absolute; transform: translate(-50%, -50%); width: 34px; height: 34px; border-radius: 50%;
+  border: 0; background: #fff; box-shadow: 0 4px 14px rgba(0,0,0,.25); cursor: pointer; display: grid; place-items: center; padding: 0;
+  animation: tp-pulse 2.4s ease-out infinite;
+}
+.tp-dot span { color: #E0301E; font-size: 22px; line-height: 1; font-weight: 300; }
+.tp-dot.has { background: #111; }
+.tp-dot.has span { color: #fff; font-size: 15px; font-weight: 500; }
+.tp-dot.open { outline: 2px solid var(--gold); outline-offset: 3px; animation: none; }
+@keyframes tp-pulse { 0% { box-shadow: 0 0 0 0 rgba(255,255,255,.7), 0 4px 14px rgba(0,0,0,.25); } 70% { box-shadow: 0 0 0 12px rgba(255,255,255,0), 0 4px 14px rgba(0,0,0,.25); } 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0), 0 4px 14px rgba(0,0,0,.25); } }
+@media (prefers-reduced-motion: reduce) { .tp-dot { animation: none; } }
+.tp-panel { border: 1px solid var(--line); border-radius: var(--radius); padding: 14px; background: var(--surface); }
+.tp-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+.tp-opts { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
+.tp-opt {
+  text-align: left; background: none; border: 1px solid var(--line); border-radius: 12px; padding: 9px 12px; cursor: pointer;
+  display: flex; flex-direction: column; gap: 2px; color: var(--ink);
+}
+.tp-opt small { color: var(--ink-2); font-size: 12px; }
+.tp-opt:hover { border-color: var(--ink-2); }
+.tp-opt.on { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+.tp-hint { margin: 0; padding: 14px; border: 1px dashed var(--line); border-radius: var(--radius); }
+.tp-chosen { font-size: 13px; color: var(--ink-2); margin: 10px 0 0; }
+@media (max-width: 760px) { .tp-wrap { grid-template-columns: minmax(0, 1fr); } .tp-dot { width: 30px; height: 30px; } }

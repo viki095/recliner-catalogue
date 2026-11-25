@@ -123,6 +123,17 @@ window.CATALOGUE = {
       tagline: "Living room, home theatre and lounger recliners, customised to the last detail.",
       website: "https://www.littlenap.in",
       color: "#A4473A",
+      // "Tap + on the recliner" in the planner. x / y place each + on the drawing (percent).
+      // one: true = pick one option (or none); otherwise any number can be switched on.
+      touchpoints: [
+        { id: "table",   name: "Tables",        x: 69, y: 39, one: true,  items: ["ln-t-swivel", "ln-t-ipad", "ln-t-clad"] },
+        { id: "switch",  name: "Controls",      x: 60, y: 52, one: true,  items: ["ln-s-4btn", "ln-s-backlit", "ln-s-metal", "ln-s-round", "ln-s-remote", "ln-s-touch", "ln-s-usb", "ln-s-dual", "ln-s-hidden"] },
+        { id: "comfort", name: "Comfort",       x: 31, y: 30, one: false, items: ["ln-c-sensor", "ln-c-warmer", "ln-c-massage", "ln-c-vent"] },
+        { id: "foot",    name: "Footrest",      x: 82, y: 66, one: false, items: ["ln-footlight"] },
+        { id: "cup",     name: "Cup holders",   x: 44, y: 38, one: true,  items: ["ln-g-light", "ln-g-rev", "ln-g-touch", "ln-g-gun", "ln-g-chrome", "ln-g-chiller", "ln-g-dual", "ln-g-massager"] },
+        { id: "usb",     name: "USB",           x: 50, y: 52, one: true,  items: ["ln-u-popup", "ln-u-silver", "ln-u-black"] },
+        { id: "battery", name: "Battery",       x: 50, y: 80, one: false, items: ["ln-battery"] }
+      ],
       materialGroups: ["uph"],
       materials: {
         fabric:      { note: "Soft-touch weave",  colours: [["Beige","#CDBB9E"],["Grey","#8E8D8A"],["Navy","#2D3A55"],["Maroon","#6A2730"]] },
@@ -208,7 +219,37 @@ window.CATALOGUE = {
     "ln-storage":   { name: "Armrest storage",                      price: 2500 },
     "ln-led":       { name: "LED ambient lighting",                 price: 3000 },
     "ln-headrest":  { name: "Power headrest",                       price: 7500 },
-    "ln-battery":   { name: "Rechargeable battery pack",            price: 9000 },
+
+    // Little Nap touchpoints (littlenap.in/home-theater-recliners, "Customize Your Comfort")
+    "ln-t-swivel":  { name: "Swivel table",                      price: 6500 },
+    "ln-t-ipad":    { name: "iPad table",                        price: 9500 },
+    "ln-t-clad":    { name: "Swivel table with cladding",        price: 8500 },
+    "ln-s-4btn":    { name: "4-button metal switch",             price: 2500 },
+    "ln-s-backlit": { name: "Backlit switch",                    price: 3000 },
+    "ln-s-metal":   { name: "Metal switch",                      price: 2000 },
+    "ln-s-round":   { name: "Black round switch",                price: 1500 },
+    "ln-s-remote":  { name: "Backlit remote",                    price: 4500 },
+    "ln-s-touch":   { name: "Touch sensor",                      price: 3500 },
+    "ln-s-usb":     { name: "USB backlit switch",                price: 3500 },
+    "ln-s-dual":    { name: "Dual-motor backlit switch",         price: 4000 },
+    "ln-s-hidden":  { name: "Hidden sensor",                     price: 4000 },
+    "ln-c-sensor":  { name: "Seat sensor",                       price: 3000 },
+    "ln-c-warmer":  { name: "Seat warmer",                       price: 9000 },
+    "ln-c-massage": { name: "Back massage",                      price: 12000 },
+    "ln-c-vent":    { name: "Ventilated seat",                   price: 14000 },
+    "ln-footlight": { name: "Lighted footrest",                  price: 4500 },
+    "ln-g-light":   { name: "Lighted glass holder",              price: 2500 },
+    "ln-g-rev":     { name: "Reversible cup holder",             price: 2000 },
+    "ln-g-touch":   { name: "Touch glass holder",                price: 3000 },
+    "ln-g-gun":     { name: "Gunmetal glass holder",             price: 2500 },
+    "ln-g-chrome":  { name: "Chrome glass holder",               price: 1500 },
+    "ln-g-chiller": { name: "Chiller glass holder",              price: 9000 },
+    "ln-g-dual":    { name: "Dual-motor glass holder",           price: 3500 },
+    "ln-g-massager":{ name: "Massager glass holder",             price: 3500 },
+    "ln-u-popup":   { name: "Pop-up USB port",                   price: 3500 },
+    "ln-u-silver":  { name: "USB port (silver)",                 price: 1500 },
+    "ln-u-black":   { name: "USB port (black)",                  price: 1500 },
+    "ln-battery":   { name: "Battery backup",                       price: 9000 },
     "ln-lamp":      { name: "Side lamp",                            price: 8500,  perSeat: false },
     "ln-mushroom":  { name: "Mushroom lamp",                        price: 6500,  perSeat: false },
     "ln-console":   { name: "Centre console",                       price: 12000, perSeat: false },
@@ -611,16 +652,16 @@ window.CATALOGUE = {
       description: "Home theatre recliner for private cinemas.",
       features: ["Home theatre seating", "Single seats or rows"],
       variants: [ { name: "1 seater", seats: 1, price: 92000 }, { name: "Row of 2", seats: 2, price: 178000 }, { name: "Row of 3", seats: 3, price: 262000 }, { name: "Row of 4", seats: 4, price: 344000 } ],
-      accessories: ["ln-cuppremium", "ln-backlit", "ln-usb", "ln-tray", "ln-storage", "ln-led", "ln-headrest", "ln-console"]
+      accessories: ["ln-t-swivel", "ln-t-ipad", "ln-t-clad", "ln-s-4btn", "ln-s-backlit", "ln-s-metal", "ln-s-round", "ln-s-remote", "ln-s-touch", "ln-s-usb", "ln-s-dual", "ln-s-hidden", "ln-c-sensor", "ln-c-warmer", "ln-c-massage", "ln-c-vent", "ln-footlight", "ln-g-light", "ln-g-rev", "ln-g-touch", "ln-g-gun", "ln-g-chrome", "ln-g-chiller", "ln-g-dual", "ln-g-massager", "ln-u-popup", "ln-u-silver", "ln-u-black", "ln-battery", "ln-headrest", "ln-console"]
     },
     {
-      id: "ln-millor", brand: "littlenap", code: "LN-MILLOR", name: "Millor",
+      id: "ln-millor", brand: "littlenap", code: "LN-MILLOR-NX", name: "Millor-NX",
       collection: "Home theatre", profile: "highback", image: "",
       size: { seatW: 22, armW: 7, depth: 39, reclined: 66, height: 41 },
-      description: "Home theatre recliner.",
-      features: ["Home theatre seating", "Single seats or rows"],
+      description: "Redefines the Millor with a distinctive three-layered back, blending its timeless style with modern technology.",
+      features: ["Three-layered back", "Single seats or rows"],
       variants: [ { name: "1 seater", seats: 1, price: 98000 }, { name: "Row of 3", seats: 3, price: 282000 }, { name: "Row of 4", seats: 4, price: 370000 } ],
-      accessories: ["ln-cuppremium", "ln-backlit", "ln-usb", "ln-tray", "ln-storage", "ln-led", "ln-headrest", "ln-console"]
+      accessories: ["ln-t-swivel", "ln-t-ipad", "ln-t-clad", "ln-s-4btn", "ln-s-backlit", "ln-s-metal", "ln-s-round", "ln-s-remote", "ln-s-touch", "ln-s-usb", "ln-s-dual", "ln-s-hidden", "ln-c-sensor", "ln-c-warmer", "ln-c-massage", "ln-c-vent", "ln-footlight", "ln-g-light", "ln-g-rev", "ln-g-touch", "ln-g-gun", "ln-g-chrome", "ln-g-chiller", "ln-g-dual", "ln-g-massager", "ln-u-popup", "ln-u-silver", "ln-u-black", "ln-battery", "ln-headrest", "ln-console"]
     },
     {
       id: "ln-ritz", brand: "littlenap", code: "LN-RITZ", name: "Ritz",
@@ -629,7 +670,7 @@ window.CATALOGUE = {
       description: "Home theatre seating.",
       features: ["Home theatre seating", "Single seats or rows"],
       variants: [ { name: "1 seater", seats: 1, price: 115000 }, { name: "Row of 3", seats: 3, price: 332000 }, { name: "Row of 4", seats: 4, price: 436000 } ],
-      accessories: ["ln-cuppremium", "ln-backlit", "ln-usb", "ln-tray", "ln-storage", "ln-led", "ln-headrest", "ln-console"]
+      accessories: ["ln-t-swivel", "ln-t-ipad", "ln-t-clad", "ln-s-4btn", "ln-s-backlit", "ln-s-metal", "ln-s-round", "ln-s-remote", "ln-s-touch", "ln-s-usb", "ln-s-dual", "ln-s-hidden", "ln-c-sensor", "ln-c-warmer", "ln-c-massage", "ln-c-vent", "ln-footlight", "ln-g-light", "ln-g-rev", "ln-g-touch", "ln-g-gun", "ln-g-chrome", "ln-g-chiller", "ln-g-dual", "ln-g-massager", "ln-u-popup", "ln-u-silver", "ln-u-black", "ln-battery", "ln-headrest", "ln-console"]
     },
     {
       id: "ln-verve", brand: "littlenap", code: "LN-VERVE", name: "Verve",
@@ -638,7 +679,7 @@ window.CATALOGUE = {
       description: "Theatre recliner.",
       features: ["Home theatre seating", "Single seats or rows"],
       variants: [ { name: "1 seater", seats: 1, price: 86000 }, { name: "Row of 3", seats: 3, price: 248000 } ],
-      accessories: ["ln-cuppremium", "ln-backlit", "ln-usb", "ln-tray", "ln-storage", "ln-led", "ln-console"]
+      accessories: ["ln-t-swivel", "ln-t-ipad", "ln-t-clad", "ln-s-4btn", "ln-s-backlit", "ln-s-metal", "ln-s-round", "ln-s-remote", "ln-s-touch", "ln-s-usb", "ln-s-dual", "ln-s-hidden", "ln-c-sensor", "ln-c-warmer", "ln-c-massage", "ln-c-vent", "ln-footlight", "ln-g-light", "ln-g-rev", "ln-g-touch", "ln-g-gun", "ln-g-chrome", "ln-g-chiller", "ln-g-dual", "ln-g-massager", "ln-u-popup", "ln-u-silver", "ln-u-black", "ln-battery", "ln-headrest", "ln-console"]
     },
     {
       id: "ln-primus", brand: "littlenap", code: "LN-PRIMUS", name: "Primus",
@@ -647,25 +688,70 @@ window.CATALOGUE = {
       description: "Theatre recliner.",
       features: ["Home theatre seating", "Single seats or rows"],
       variants: [ { name: "1 seater", seats: 1, price: 104000 }, { name: "Row of 3", seats: 3, price: 300000 } ],
-      accessories: ["ln-cuppremium", "ln-backlit", "ln-usb", "ln-tray", "ln-storage", "ln-led", "ln-headrest", "ln-console"]
+      accessories: ["ln-t-swivel", "ln-t-ipad", "ln-t-clad", "ln-s-4btn", "ln-s-backlit", "ln-s-metal", "ln-s-round", "ln-s-remote", "ln-s-touch", "ln-s-usb", "ln-s-dual", "ln-s-hidden", "ln-c-sensor", "ln-c-warmer", "ln-c-massage", "ln-c-vent", "ln-footlight", "ln-g-light", "ln-g-rev", "ln-g-touch", "ln-g-gun", "ln-g-chrome", "ln-g-chiller", "ln-g-dual", "ln-g-massager", "ln-u-popup", "ln-u-silver", "ln-u-black", "ln-battery", "ln-headrest", "ln-console"]
     },
     {
       id: "ln-aderia", brand: "littlenap", code: "LN-ADERIA", name: "Aderia",
       collection: "Home theatre", profile: "lowback", image: "",
       size: { seatW: 22, armW: 7, depth: 39, reclined: 66, height: 34 },
-      description: "Modern recliner.",
-      features: ["Home theatre seating"],
+      description: "A bestseller: modern design, double-needle stitching, contrast piping and a double swivel table over the armrest.",
+      features: ["Double-needle stitch work", "Contrast piping", "Double swivel table, touch sensor control"],
       variants: [ { name: "1 seater", seats: 1, price: 88000 }, { name: "Row of 3", seats: 3, price: 254000 } ],
-      accessories: ["ln-cuppremium", "ln-backlit", "ln-usb", "ln-tray", "ln-storage", "ln-led", "ln-console"]
+      accessories: ["ln-t-swivel", "ln-t-ipad", "ln-t-clad", "ln-s-4btn", "ln-s-backlit", "ln-s-metal", "ln-s-round", "ln-s-remote", "ln-s-touch", "ln-s-usb", "ln-s-dual", "ln-s-hidden", "ln-c-sensor", "ln-c-warmer", "ln-c-massage", "ln-c-vent", "ln-footlight", "ln-g-light", "ln-g-rev", "ln-g-touch", "ln-g-gun", "ln-g-chrome", "ln-g-chiller", "ln-g-dual", "ln-g-massager", "ln-u-popup", "ln-u-silver", "ln-u-black", "ln-battery", "ln-headrest", "ln-console"]
     },
     {
       id: "ln-ebony", brand: "littlenap", code: "LN-EBONY", name: "Ebony",
       collection: "Home theatre", profile: "deep", image: "",
       size: { seatW: 24, armW: 7, depth: 41, reclined: 69, height: 41 },
-      description: "Ultra-premium multiplex recliner, also suited to large private theatres.",
+      description: "Ultra-premium non-chaise recliner with straight lines and elegant aesthetics.",
       features: ["Multiplex grade", "Home theatre seating", "Single seats or rows"],
       variants: [ { name: "1 seater", seats: 1, price: 128000 }, { name: "Row of 4", seats: 4, price: 488000 } ],
-      accessories: ["ln-cuppremium", "ln-backlit", "ln-usb", "ln-tray", "ln-led", "ln-headrest", "ln-console"]
+      accessories: ["ln-t-swivel", "ln-t-ipad", "ln-t-clad", "ln-s-4btn", "ln-s-backlit", "ln-s-metal", "ln-s-round", "ln-s-remote", "ln-s-touch", "ln-s-usb", "ln-s-dual", "ln-s-hidden", "ln-c-sensor", "ln-c-warmer", "ln-c-massage", "ln-c-vent", "ln-footlight", "ln-g-light", "ln-g-rev", "ln-g-touch", "ln-g-gun", "ln-g-chrome", "ln-g-chiller", "ln-g-dual", "ln-g-massager", "ln-u-popup", "ln-u-silver", "ln-u-black", "ln-battery", "ln-headrest", "ln-console"]
+    },
+    {
+      id: "ln-trident", brand: "littlenap", code: "LN-TRIDENT", name: "Trident",
+      collection: "Home theatre", profile: "highback", image: "",
+      size: { seatW: 22, armW: 7, depth: 39, reclined: 66, height: 42 },
+      description: "Best-in-class recliner inspired by premium automobile seats, with a bucket seat in PU foam.",
+      features: ["Automobile-inspired bucket seat", "Made entirely of PU foam", "Premium range"],
+      variants: [ { name: "1 seater", seats: 1, price: 135000 }, { name: "Row of 3", seats: 3, price: 392000 }, { name: "Row of 4", seats: 4, price: 513000 } ],
+      accessories: ["ln-t-swivel", "ln-t-ipad", "ln-t-clad", "ln-s-4btn", "ln-s-backlit", "ln-s-metal", "ln-s-round", "ln-s-remote", "ln-s-touch", "ln-s-usb", "ln-s-dual", "ln-s-hidden", "ln-c-sensor", "ln-c-warmer", "ln-c-massage", "ln-c-vent", "ln-footlight", "ln-g-light", "ln-g-rev", "ln-g-touch", "ln-g-gun", "ln-g-chrome", "ln-g-chiller", "ln-g-dual", "ln-g-massager", "ln-u-popup", "ln-u-silver", "ln-u-black", "ln-battery", "ln-headrest", "ln-console"]
+    },
+    {
+      id: "ln-zenith", brand: "littlenap", code: "LN-ZENITH", name: "Zenith",
+      collection: "Home theatre", profile: "highback", image: "",
+      size: { seatW: 22, armW: 7, depth: 39, reclined: 66, height: 42 },
+      description: "Inspired by premium automobile seats, made entirely of PU foam with a bucket seat.",
+      features: ["Automobile-inspired bucket seat", "Made entirely of PU foam", "Premium range"],
+      variants: [ { name: "1 seater", seats: 1, price: 128000 }, { name: "Row of 3", seats: 3, price: 371000 }, { name: "Row of 4", seats: 4, price: 486000 } ],
+      accessories: ["ln-t-swivel", "ln-t-ipad", "ln-t-clad", "ln-s-4btn", "ln-s-backlit", "ln-s-metal", "ln-s-round", "ln-s-remote", "ln-s-touch", "ln-s-usb", "ln-s-dual", "ln-s-hidden", "ln-c-sensor", "ln-c-warmer", "ln-c-massage", "ln-c-vent", "ln-footlight", "ln-g-light", "ln-g-rev", "ln-g-touch", "ln-g-gun", "ln-g-chrome", "ln-g-chiller", "ln-g-dual", "ln-g-massager", "ln-u-popup", "ln-u-silver", "ln-u-black", "ln-battery", "ln-headrest", "ln-console"]
+    },
+    {
+      id: "ln-gatsby", brand: "littlenap", code: "LN-GATSBY", name: "Gatsby",
+      collection: "Home theatre", profile: "highback", image: "",
+      size: { seatW: 22, armW: 7, depth: 39, reclined: 66, height: 41 },
+      description: "Exclusive design with technology-driven features.",
+      features: ["Exclusive design", "Technology-driven features"],
+      variants: [ { name: "1 seater", seats: 1, price: 112000 }, { name: "Row of 3", seats: 3, price: 325000 }, { name: "Row of 4", seats: 4, price: 426000 } ],
+      accessories: ["ln-t-swivel", "ln-t-ipad", "ln-t-clad", "ln-s-4btn", "ln-s-backlit", "ln-s-metal", "ln-s-round", "ln-s-remote", "ln-s-touch", "ln-s-usb", "ln-s-dual", "ln-s-hidden", "ln-c-sensor", "ln-c-warmer", "ln-c-massage", "ln-c-vent", "ln-footlight", "ln-g-light", "ln-g-rev", "ln-g-touch", "ln-g-gun", "ln-g-chrome", "ln-g-chiller", "ln-g-dual", "ln-g-massager", "ln-u-popup", "ln-u-silver", "ln-u-black", "ln-battery", "ln-headrest", "ln-console"]
+    },
+    {
+      id: "ln-fortuna", brand: "littlenap", code: "LN-FORTUNA", name: "Fortuna",
+      collection: "Home theatre", profile: "deep", image: "",
+      size: { seatW: 24, armW: 7, depth: 41, reclined: 69, height: 41 },
+      description: "Exclusive design with technology-driven features.",
+      features: ["Exclusive design", "Technology-driven features"],
+      variants: [ { name: "1 seater", seats: 1, price: 118000 }, { name: "Row of 3", seats: 3, price: 342000 }, { name: "Row of 4", seats: 4, price: 448000 } ],
+      accessories: ["ln-t-swivel", "ln-t-ipad", "ln-t-clad", "ln-s-4btn", "ln-s-backlit", "ln-s-metal", "ln-s-round", "ln-s-remote", "ln-s-touch", "ln-s-usb", "ln-s-dual", "ln-s-hidden", "ln-c-sensor", "ln-c-warmer", "ln-c-massage", "ln-c-vent", "ln-footlight", "ln-g-light", "ln-g-rev", "ln-g-touch", "ln-g-gun", "ln-g-chrome", "ln-g-chiller", "ln-g-dual", "ln-g-massager", "ln-u-popup", "ln-u-silver", "ln-u-black", "ln-battery", "ln-headrest", "ln-console"]
+    },
+    {
+      id: "ln-nuvo", brand: "littlenap", code: "LN-NUVO", name: "Nuvo",
+      collection: "Home theatre", profile: "highback", image: "",
+      size: { seatW: 22, armW: 7, depth: 39, reclined: 66, height: 41 },
+      description: "Inspired by premium automobile seats and made in PU foam.",
+      features: ["Automobile-inspired design", "PU foam construction"],
+      variants: [ { name: "1 seater", seats: 1, price: 105000 }, { name: "Row of 3", seats: 3, price: 304000 }, { name: "Row of 4", seats: 4, price: 399000 } ],
+      accessories: ["ln-t-swivel", "ln-t-ipad", "ln-t-clad", "ln-s-4btn", "ln-s-backlit", "ln-s-metal", "ln-s-round", "ln-s-remote", "ln-s-touch", "ln-s-usb", "ln-s-dual", "ln-s-hidden", "ln-c-sensor", "ln-c-warmer", "ln-c-massage", "ln-c-vent", "ln-footlight", "ln-g-light", "ln-g-rev", "ln-g-touch", "ln-g-gun", "ln-g-chrome", "ln-g-chiller", "ln-g-dual", "ln-g-massager", "ln-u-popup", "ln-u-silver", "ln-u-black", "ln-battery", "ln-headrest", "ln-console"]
     },
 
     // ---------------- LITTLE NAP : loungers ----------------
