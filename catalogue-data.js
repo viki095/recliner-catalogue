@@ -332,7 +332,7 @@ window.CATALOGUE = {
       accessories: ["sl-console", "sl-cup", "sl-usb", "sl-light", "sl-storage", "sl-swatch"]
     },
 
-    // ---------------- MOOVIA : home theatre seating ----------------
+    // ---------------- MOOVIA (moovia.de/home-theater-seating) ----------------
     {
       id: "mv-rome", brand: "moovia", code: "MV-ROME", name: "Rome",
       collection: "Home theatre", profile: "highback", image: "images/models/mv-rome.jpg",
@@ -463,197 +463,8 @@ window.CATALOGUE = {
       accessories: ["mv-cup", "mv-cuplight", "mv-storage", "mv-snackbar", "mv-floorlight", "mv-lumbar", "mv-hvac", "mv-dbox", "mv-smart"]
     },
 
-    // ---------------- MOOVIA : media room sofas ----------------
-    {
-      id: "mv-lyon", brand: "moovia", code: "MV-LYON", name: "Lyon",
-      collection: "Media room sofa", profile: "sofa", image: "",
-      description: "Media room sofa combining a traditional look with motorised functions.",
-      features: ["Sofa for living and media rooms", "Motorised recline seats", "Chaise longue option"],
-      variants: [
-        { name: "2 seater sofa", seats: 2, price: 690000 },
-        { name: "3 seater sofa", seats: 3, price: 990000 }
-      ],
-      accessories: ["mv-cup", "mv-cuplight", "mv-storage", "mv-floorlight", "mv-lumbar", "mv-chaise", "mv-smart"]
-    },
-    {
-      id: "mv-alpha", brand: "moovia", code: "MV-ALPHA", name: "Alpha",
-      collection: "Media room sofa", profile: "sofa", image: "",
-      description: "Media room sofa combining a traditional look with motorised functions.",
-      features: ["Sofa for living and media rooms", "Motorised recline seats", "Chaise longue option"],
-      variants: [
-        { name: "2 seater sofa", seats: 2, price: 640000 },
-        { name: "3 seater sofa", seats: 3, price: 920000 }
-      ],
-      accessories: ["mv-cup", "mv-cuplight", "mv-storage", "mv-floorlight", "mv-lumbar", "mv-chaise", "mv-smart"]
-    },
-    {
-      id: "mv-budapest", brand: "moovia", code: "MV-BUDAPEST", name: "Budapest",
-      collection: "Media room sofa", profile: "sofa", image: "",
-      description: "Media room sofa combining a traditional look with motorised functions.",
-      features: ["Sofa for living and media rooms", "Motorised recline seats", "Modular layout"],
-      variants: [
-        { name: "2 seater sofa", seats: 2, price: 610000 },
-        { name: "3 seater sofa", seats: 3, price: 880000 }
-      ],
-      accessories: ["mv-cup", "mv-cuplight", "mv-storage", "mv-floorlight", "mv-lumbar", "mv-chaise", "mv-smart"]
-    },
-    {
-      id: "mv-oslo", brand: "moovia", code: "MV-OSLO", name: "Oslo",
-      collection: "Media room sofa", profile: "sofa", image: "",
-      description: "Media room sofa combining a traditional look with motorised functions.",
-      features: ["Sofa for living and media rooms", "Motorised recline seats", "Moodboard finishes available"],
-      variants: [
-        { name: "2 seater sofa", seats: 2, price: 660000 },
-        { name: "3 seater sofa", seats: 3, price: 950000 }
-      ],
-      accessories: ["mv-cup", "mv-cuplight", "mv-storage", "mv-floorlight", "mv-lumbar", "mv-chaise", "mv-smart"]
-    },
 
-    // ---------------- MOOVIA : lounge chairs ----------------
-    {
-      id: "mv-cannes", brand: "moovia", code: "MV-CANNES", name: "Cannes",
-      collection: "Lounge chair", profile: "lowback", image: "",
-      description: "Media room chair for listening rooms, lobbies and lounges.",
-      features: ["Stand-alone lounge chair", "For listening rooms and lounges"],
-      variants: [ { name: "Chair", seats: 1, price: 290000 } ],
-      only: { mech: ["single"], arm: ["std"] },
-      accessories: ["mv-cup", "mv-storage", "mv-lumbar"]
-    },
-    {
-      id: "mv-copenhagen", brand: "moovia", code: "MV-COPENHAGEN", name: "Copenhagen",
-      collection: "Lounge chair", profile: "lowback", image: "",
-      description: "Media room chair for listening rooms, lobbies and lounges.",
-      features: ["Stand-alone lounge chair", "For listening rooms and lounges"],
-      variants: [ { name: "Chair", seats: 1, price: 270000 } ],
-      only: { mech: ["single"], arm: ["std"] },
-      accessories: ["mv-cup", "mv-storage", "mv-lumbar"]
-    },
-    {
-      id: "mv-monaco", brand: "moovia", code: "MV-MONACO", name: "Monaco",
-      collection: "Lounge chair", profile: "highback", image: "",
-      description: "Media room chair for listening rooms, lobbies and lounges.",
-      features: ["Stand-alone lounge chair", "For listening rooms and lounges"],
-      variants: [ { name: "Chair", seats: 1, price: 310000 } ],
-      only: { mech: ["single"], arm: ["std"] },
-      accessories: ["mv-cup", "mv-storage", "mv-lumbar"]
-    },
-
-    // ---------------- LITTLE NAP : living room ----------------
-    {
-      id: "ln-otium", brand: "littlenap", code: "LN-OTIUM", name: "Otium",
-      collection: "Living room", profile: "highback", image: "",
-      description: "Manual single-seater living room recliner.",
-      features: ["Manual recline", "Single seater"],
-      variants: [ { name: "1 seater", seats: 1, price: 32000 } ],
-      accessories: ["ln-cup", "ln-storage", "ln-lamp"]
-    },
-    {
-      id: "ln-swift", brand: "littlenap", code: "LN-SWIFT", name: "Swift",
-      collection: "Living room", profile: "highback", image: "",
-      description: "Manual single-seater living room recliner.",
-      features: ["Manual recline", "Single seater"],
-      variants: [ { name: "1 seater", seats: 1, price: 29000 } ],
-      accessories: ["ln-cup", "ln-storage", "ln-lamp"]
-    },
-    {
-      id: "ln-urbania", brand: "littlenap", code: "LN-URBANIA", name: "Urbania",
-      collection: "Living room", profile: "highback", image: "",
-      description: "Manual single-seater living room recliner.",
-      features: ["Manual recline", "Single seater"],
-      variants: [ { name: "1 seater", seats: 1, price: 34000 } ],
-      accessories: ["ln-cup", "ln-storage", "ln-lamp"]
-    },
-    {
-      id: "ln-quotium", brand: "littlenap", code: "LN-QUOTIUM", name: "Quotium",
-      collection: "Living room", profile: "highback", image: "",
-      description: "Manual single-seater living room recliner.",
-      features: ["Manual recline", "Single seater"],
-      variants: [ { name: "1 seater", seats: 1, price: 36000 } ],
-      accessories: ["ln-cup", "ln-storage", "ln-lamp"]
-    },
-    {
-      id: "ln-versatil", brand: "littlenap", code: "LN-VERSATIL", name: "Versatil",
-      collection: "Living room", profile: "highback", image: "",
-      description: "Motorised single-seater living room recliner.",
-      features: ["Motorised recline", "Single seater"],
-      variants: [ { name: "1 seater", seats: 1, price: 52000 } ],
-      accessories: ["ln-cup", "ln-backlit", "ln-usb", "ln-storage", "ln-headrest", "ln-battery", "ln-lamp"]
-    },
-    {
-      id: "ln-nirvana", brand: "littlenap", code: "LN-NIRVANA", name: "Nirvana",
-      collection: "Living room", profile: "highback", image: "",
-      description: "Motorised single-seater recliner with swivel and glide.",
-      features: ["Motorised recline", "Swivel glider", "Single seater"],
-      variants: [ { name: "1 seater", seats: 1, price: 64000 } ],
-      accessories: ["ln-cup", "ln-backlit", "ln-usb", "ln-headrest", "ln-battery", "ln-lamp"]
-    },
-    {
-      id: "ln-quies", brand: "littlenap", code: "LN-QUIES", name: "Quies",
-      collection: "Living room", profile: "highback", image: "",
-      description: "Single-seater recliner, available in manual and motorised versions.",
-      features: ["Manual or motorised", "Single seater"],
-      variants: [ { name: "1 seater, manual", seats: 1, price: 38000 }, { name: "1 seater, motorised", seats: 1, price: 56000 } ],
-      accessories: ["ln-cup", "ln-backlit", "ln-usb", "ln-storage", "ln-headrest", "ln-battery", "ln-lamp"]
-    },
-    {
-      id: "ln-helios", brand: "littlenap", code: "LN-HELIOS", name: "Helios",
-      collection: "Living room", profile: "highback", image: "",
-      description: "Motorised recliner, also available with pocket springs or as a swivel glider.",
-      features: ["Motorised recline", "Pocket-spring and swivel glider versions"],
-      variants: [ { name: "1 seater", seats: 1, price: 58000 }, { name: "1 seater, pocket spring", seats: 1, price: 64000 }, { name: "1 seater, swivel glider", seats: 1, price: 69000 } ],
-      accessories: ["ln-cup", "ln-backlit", "ln-usb", "ln-storage", "ln-headrest", "ln-battery", "ln-lamp"]
-    },
-    {
-      id: "ln-galaxy", brand: "littlenap", code: "LN-GALAXY", name: "Galaxy",
-      collection: "Living room", profile: "highback", image: "",
-      description: "Living room recliner.",
-      features: ["Living room recliner"],
-      variants: [ { name: "1 seater", seats: 1, price: 48000 } ],
-      accessories: ["ln-cup", "ln-backlit", "ln-usb", "ln-storage", "ln-lamp"]
-    },
-    {
-      id: "ln-avion", brand: "littlenap", code: "LN-AVION", name: "Avion",
-      collection: "Living room", profile: "sofa", image: "",
-      description: "Recliner sofa available as two- and three-seaters.",
-      features: ["Manual or motorised", "2 and 3 seater sofas"],
-      variants: [ { name: "1 seater", seats: 1, price: 46000 }, { name: "2 seater", seats: 2, price: 88000 }, { name: "3 seater", seats: 3, price: 126000 } ],
-      accessories: ["ln-cup", "ln-backlit", "ln-usb", "ln-storage", "ln-headrest", "ln-led", "ln-console"]
-    },
-    {
-      id: "ln-livo", brand: "littlenap", code: "LN-LIVO", name: "Livo",
-      collection: "Living room", profile: "highback", image: "",
-      description: "Living room recliner.",
-      features: ["Living room recliner"],
-      variants: [ { name: "1 seater", seats: 1, price: 44000 } ],
-      accessories: ["ln-cup", "ln-usb", "ln-storage", "ln-lamp"]
-    },
-    {
-      id: "ln-amet", brand: "littlenap", code: "LN-AMET", name: "Amet",
-      collection: "Living room", profile: "highback", image: "",
-      description: "Living room recliner.",
-      features: ["Living room recliner"],
-      variants: [ { name: "1 seater", seats: 1, price: 42000 } ],
-      accessories: ["ln-cup", "ln-usb", "ln-storage", "ln-lamp"]
-    },
-    {
-      id: "ln-adore", brand: "littlenap", code: "LN-ADORE", name: "Adore",
-      collection: "Living room", profile: "highback", image: "",
-      description: "Recliner chair.",
-      features: ["Recliner chair"],
-      variants: [ { name: "1 seater", seats: 1, price: 47000 } ],
-      accessories: ["ln-cup", "ln-usb", "ln-storage", "ln-lamp"]
-    },
-
-    // ---------------- LITTLE NAP : home theatre & multiplex ----------------
-    {
-      id: "ln-crescent", brand: "littlenap", code: "LN-CRESCENT", name: "Crescent",
-      collection: "Home theatre", profile: "highback", image: "",
-      size: { seatW: 22, armW: 7, depth: 39, reclined: 66, height: 41 },
-      description: "Home theatre recliner for private cinemas.",
-      features: ["Home theatre seating", "Single seats or rows"],
-      variants: [ { name: "1 seater", seats: 1, price: 92000 }, { name: "Row of 2", seats: 2, price: 178000 }, { name: "Row of 3", seats: 3, price: 262000 }, { name: "Row of 4", seats: 4, price: 344000 } ],
-      accessories: ["ln-t-swivel", "ln-t-ipad", "ln-t-clad", "ln-s-4btn", "ln-s-backlit", "ln-s-metal", "ln-s-round", "ln-s-remote", "ln-s-touch", "ln-s-usb", "ln-s-dual", "ln-s-hidden", "ln-c-sensor", "ln-c-warmer", "ln-c-massage", "ln-c-vent", "ln-footlight", "ln-g-light", "ln-g-rev", "ln-g-touch", "ln-g-gun", "ln-g-chrome", "ln-g-chiller", "ln-g-dual", "ln-g-massager", "ln-u-popup", "ln-u-silver", "ln-u-black", "ln-battery", "ln-headrest", "ln-console"]
-    },
+    // ---------------- LITTLE NAP (littlenap.in/our-collection) ----------------
     {
       id: "ln-millor", brand: "littlenap", code: "LN-MILLOR-NX", name: "Millor-NX",
       collection: "Home theatre", profile: "highback", image: "images/models/ln-millor.jpg",
@@ -753,23 +564,14 @@ window.CATALOGUE = {
       variants: [ { name: "1 seater", seats: 1, price: 105000 }, { name: "Row of 3", seats: 3, price: 304000 }, { name: "Row of 4", seats: 4, price: 399000 } ],
       accessories: ["ln-t-swivel", "ln-t-ipad", "ln-t-clad", "ln-s-4btn", "ln-s-backlit", "ln-s-metal", "ln-s-round", "ln-s-remote", "ln-s-touch", "ln-s-usb", "ln-s-dual", "ln-s-hidden", "ln-c-sensor", "ln-c-warmer", "ln-c-massage", "ln-c-vent", "ln-footlight", "ln-g-light", "ln-g-rev", "ln-g-touch", "ln-g-gun", "ln-g-chrome", "ln-g-chiller", "ln-g-dual", "ln-g-massager", "ln-u-popup", "ln-u-silver", "ln-u-black", "ln-battery", "ln-headrest", "ln-console"]
     },
-
-    // ---------------- LITTLE NAP : loungers ----------------
     {
       id: "ln-lunar", brand: "littlenap", code: "LN-LUNAR", name: "Lunar Lounger",
-      collection: "Lounger", profile: "lounger", image: "images/models/ln-lunar.jpg",
-      description: "Premium motorised lounger.",
-      features: ["Motorised", "Lounger format"],
+      collection: "Home theatre", profile: "lounger", image: "images/models/ln-lunar.jpg",
+      size: { seatW: 30, armW: 5, depth: 66, reclined: 72, height: 36 },
+      description: "Motorised lounger with a liftable headrest, premium finish and a touch of metal.",
+      features: ["Motorised lounger", "Liftable headrest", "Metal accents"],
       variants: [ { name: "Lounger", seats: 1, price: 96000 } ],
-      accessories: ["ln-cuppremium", "ln-backlit", "ln-usb", "ln-battery", "ln-mushroom"]
-    },
-    {
-      id: "ln-versatil-lounger", brand: "littlenap", code: "LN-VERSATIL-L", name: "Versatil Lounger",
-      collection: "Lounger", profile: "lounger", image: "",
-      description: "Lounger version of the Versatil.",
-      features: ["Lounger format"],
-      variants: [ { name: "Lounger", seats: 1, price: 82000 } ],
-      accessories: ["ln-cup", "ln-backlit", "ln-usb", "ln-battery", "ln-mushroom"]
+      accessories: ["ln-t-swivel", "ln-t-ipad", "ln-t-clad", "ln-s-4btn", "ln-s-backlit", "ln-s-metal", "ln-s-round", "ln-s-remote", "ln-s-touch", "ln-s-usb", "ln-s-dual", "ln-s-hidden", "ln-c-sensor", "ln-c-warmer", "ln-c-massage", "ln-c-vent", "ln-footlight", "ln-g-light", "ln-g-rev", "ln-g-touch", "ln-g-gun", "ln-g-chrome", "ln-g-chiller", "ln-g-dual", "ln-g-massager", "ln-u-popup", "ln-u-silver", "ln-u-black", "ln-battery", "ln-headrest", "ln-console"]
     },
 
     // ---------------- CINEAK (cineak.com/home-theater/models) ----------------
