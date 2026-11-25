@@ -775,7 +775,7 @@ window.CATALOGUE = {
     // ---------------- CINEAK (cineak.com/home-theater/models) ----------------
     {
       id: "cn-chess", brand: "cineak", code: "CN-CHESS", name: "Chess",
-      collection: "Home theatre", profile: "highback", image: "",
+      collection: "Home theatre", profile: "highback", image: "images/models/cn-chess.png",
       size: { seatW: 23, armW: 9, depth: 41, reclined: 68, height: 42 },
       description: "Inspired by the private clubs of old: rich materials and tailored detail.",
       features: ["Club-style design", "Motorised recline", "Bespoke upholstery"],
@@ -785,7 +785,7 @@ window.CATALOGUE = {
     },
     {
       id: "cn-harv", brand: "cineak", code: "CN-HARV", name: "Harv",
-      collection: "Home theatre", profile: "highback", image: "",
+      collection: "Home theatre", profile: "highback", image: "images/models/cn-harv.png",
       size: { seatW: 24, armW: 7, depth: 41, reclined: 69, height: 42 },
       description: "A modern take on a vintage classic, with soft quilted upholstery.",
       features: ["Quilted upholstery", "Three-way motorised adjustment", "Modular layouts"],
@@ -795,7 +795,7 @@ window.CATALOGUE = {
     },
     {
       id: "cn-ollie", brand: "cineak", code: "CN-OLLIE", name: "Ollie",
-      collection: "Home theatre", profile: "lowback", image: "",
+      collection: "Home theatre", profile: "lowback", image: "images/models/cn-ollie.png",
       size: { seatW: 26, armW: 8, depth: 42, reclined: 70, height: 32 },
       description: "Fully motorised entertainment sofa that rises from low-back sofa to high-back chair.",
       features: ["Patented triple-motorised mechanism", "Backrest rises to high-back", "Footrest and headrest adjust"],
@@ -805,7 +805,7 @@ window.CATALOGUE = {
     },
     {
       id: "cn-largo", brand: "cineak", code: "CN-LARGO", name: "Largo",
-      collection: "Home theatre", profile: "lowback", image: "",
+      collection: "Home theatre", profile: "lowback", image: "images/models/cn-largo.png",
       size: { seatW: 26, armW: 8, depth: 42, reclined: 70, height: 32 },
       description: "Design-driven, fully motorised entertainment sofa.",
       features: ["Patented triple-motorised mechanism", "Low-back to high-back", "Modular sofa layouts"],
@@ -815,7 +815,7 @@ window.CATALOGUE = {
     },
     {
       id: "cn-mondrian", brand: "cineak", code: "CN-MONDRIAN", name: "Mondrian",
-      collection: "Home theatre", profile: "lowback", image: "",
+      collection: "Home theatre", profile: "lowback", image: "images/models/cn-mondrian.png",
       size: { seatW: 26, armW: 9, depth: 42, reclined: 70, height: 33 },
       description: "Bold geometric lines with a plush, deconstructed look.",
       features: ["Dual-motorised Relax", "Backrest and footrest move independently", "Design by Kim Hellemans"],
@@ -825,7 +825,7 @@ window.CATALOGUE = {
     },
     {
       id: "cn-gramercy", brand: "cineak", code: "CN-GRAMERCY", name: "Gramercy",
-      collection: "Home theatre", profile: "lowback", image: "",
+      collection: "Home theatre", profile: "lowback", image: "images/models/cn-gramercy.png",
       size: { seatW: 25, armW: 8, depth: 41, reclined: 69, height: 33 },
       description: "Sleek, contemporary multi-purpose seating with deep comfort.",
       features: ["Clean contemporary lines", "Dual-motorised Relax", "Cinema or media room"],
@@ -835,7 +835,7 @@ window.CATALOGUE = {
     },
     {
       id: "cn-trevia", brand: "cineak", code: "CN-TREVIA", name: "Trevia",
-      collection: "Home theatre", profile: "lounger", image: "",
+      collection: "Home theatre", profile: "lounger", image: "images/models/cn-trevia.jpg",
       size: { seatW: 32, armW: 6, depth: 44, reclined: 74, height: 34 },
       description: "Fully motorised chaise lounge with generous width and depth.",
       features: ["Chaise lounge format", "Fully motorised", "Extra-wide seat"],
@@ -845,7 +845,7 @@ window.CATALOGUE = {
     },
     {
       id: "cn-strato", brand: "cineak", code: "CN-STRATO", name: "Strato",
-      collection: "Home theatre", profile: "lowback", image: "",
+      collection: "Home theatre", profile: "lowback", image: "images/models/cn-strato.png",
       size: { seatW: 25, armW: 8, depth: 41, reclined: 69, height: 34 },
       description: "Abstract, modular design that hides full theatre-seat function.",
       features: ["Sofa comfort, high-back performance", "Dual-motorised Relax", "Truly modular"],
@@ -855,7 +855,7 @@ window.CATALOGUE = {
     },
     {
       id: "cn-ferrier", brand: "cineak", code: "CN-FERRIER", name: "Ferrier",
-      collection: "Home theatre", profile: "highback", image: "",
+      collection: "Home theatre", profile: "highback", image: "images/models/cn-ferrier.png",
       size: { seatW: 24, armW: 7, depth: 41, reclined: 69, height: 42 },
       description: "Diamond stitching for a refined, luxurious look.",
       features: ["Diamond stitching", "Dual-motorised Relax", "Steel frame"],
@@ -865,7 +865,7 @@ window.CATALOGUE = {
     },
     {
       id: "cn-fortuny", brand: "cineak", code: "CN-FORTUNY", name: "Fortuny",
-      collection: "Home theatre", profile: "highback", image: "",
+      collection: "Home theatre", profile: "highback", image: "images/models/cn-fortuny.png",
       size: { seatW: 24, armW: 7, depth: 41, reclined: 69, height: 43 },
       description: "Cineak's first chair, made for the world's most luxurious private cinemas.",
       features: ["Signature theatre chair", "Finest leather or fabric", "Dual-motorised Relax"],
@@ -875,7 +875,7 @@ window.CATALOGUE = {
     },
     {
       id: "cn-nero", brand: "cineak", code: "CN-NERO", name: "Nero",
-      collection: "Home theatre", profile: "highback", image: "",
+      collection: "Home theatre", profile: "highback", image: "images/models/cn-nero.png",
       size: { seatW: 24, armW: 7, depth: 41, reclined: 69, height: 43 },
       description: "Following Fortuny: ergonomic contours with multiple stitching finishes.",
       features: ["Multiple stitching finishes", "Ergonomic contours", "Dual-motorised Relax"],
@@ -885,7 +885,7 @@ window.CATALOGUE = {
     },
     {
       id: "cn-hughes", brand: "cineak", code: "CN-HUGHES", name: "Hughes",
-      collection: "Home theatre", profile: "highback", image: "",
+      collection: "Home theatre", profile: "highback", image: "images/models/cn-hughes.jpg",
       size: { seatW: 23, armW: 6, depth: 36, reclined: 52, height: 41 },
       description: "Compact theatre seat for rooms with limited space or riser depth.",
       features: ["Compact footprint", "Mechanically tilting backrest", "Ideal for shallow risers"],
