@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Home Theatre Planner</title>
-  <meta name="description" content="Plan your home theatre seating: enter the room, set out the rows, choose a collection from Seatlab, Moovia or Little Nap, pick materials and accessories, and see a tentative price.">
+  <meta name="description" content="Plan your home theatre seating: enter the room, set out the rows, choose a collection, pick materials and accessories, and see a tentative price.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="planner.css">
   <link rel="icon" type="image/png" href="images/awicon-icon.png">
@@ -17,10 +17,7 @@
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="logo" href="index.html" aria-label="Awicon Technologies">
-        <picture>
-          <source srcset="images/awicon-logo-white.png" media="(prefers-color-scheme: dark)">
-          <img src="images/awicon-logo.png" alt="Awicon Technologies" width="480" height="240">
-        </picture>
+        <img src="images/awicon-logo-white.png" alt="Awicon Technologies" width="480" height="240">
       </a>
       <nav class="top-nav"><a href="index.html" aria-current="page">Plan a theatre</a><a href="models.html">All models</a></nav>
     </div>
@@ -28,8 +25,8 @@
 
   <main class="wrap">
     <section class="p-hero">
-      <p class="eyebrow">Home theatre planner · Seatlab · Moovia · Little Nap</p>
-      <h1>Plan your theatre, seat by seat.</h1>
+      <p class="eyebrow">Home theatre planner</p>
+      <h1>Plan your private cinema<span class="dim">seat by seat</span></h1>
       <p class="notice" id="sampleNotice" hidden>Prices, seat sizes and colour shades are sample figures for now.</p>
     </section>
 
@@ -40,7 +37,7 @@
         <!-- 1 Room -->
         <section class="step" data-step="1" aria-labelledby="h1s">
           <p class="eyebrow">Step 1 of 6</p>
-          <h2 id="h1s">Room dimensions</h2>
+          <h2 id="h1s">Room <em>dimensions</em></h2>
           <p class="muted">Measure the room wall to wall. The screen goes on the front wall.</p>
           <div class="unit-switch" role="radiogroup" aria-label="Units">
             <label><input type="radio" name="unit" value="ft" checked><span>Feet</span></label>
@@ -59,7 +56,7 @@
         <!-- 2 Rows -->
         <section class="step" data-step="2" aria-labelledby="h2s" hidden>
           <p class="eyebrow">Step 2 of 6</p>
-          <h2 id="h2s">Number of rows</h2>
+          <h2 id="h2s">Number of <em>rows</em></h2>
           <p class="muted">Rows behind the first are raised on a riser so everyone sees the screen.</p>
           <div class="big-choice" id="rowChoice" role="radiogroup" aria-label="Number of rows"></div>
           <p class="hint" id="rowHint"></p>
@@ -68,7 +65,7 @@
         <!-- 3 Seats per row -->
         <section class="step" data-step="3" aria-labelledby="h3s" hidden>
           <p class="eyebrow">Step 3 of 6</p>
-          <h2 id="h3s">Seats in each row</h2>
+          <h2 id="h3s">Seats in each <em>row</em></h2>
           <p class="muted"><b>Straight arms</b> make a straight row. <b>Wedged arms</b> are tapered so the row curves towards the screen.</p>
           <div class="row-cards" id="rowCards"></div>
         </section>
@@ -76,7 +73,7 @@
         <!-- 4 Collection -->
         <section class="step" data-step="4" aria-labelledby="h4s" hidden>
           <p class="eyebrow">Step 4 of 6</p>
-          <h2 id="h4s">Choose the collection</h2>
+          <h2 id="h4s">Choose the <em>collection</em></h2>
           <div class="assign" id="assignTarget" role="radiogroup" aria-label="Choose for"></div>
           <div class="brand-tabs" id="pBrandTabs" role="tablist"></div>
           <div class="collections" id="collections"></div>
@@ -87,7 +84,7 @@
         <!-- 5 Materials -->
         <section class="step" data-step="5" aria-labelledby="h5s" hidden>
           <p class="eyebrow">Step 5 of 6</p>
-          <h2 id="h5s">Materials and upholstery</h2>
+          <h2 id="h5s">Materials and <em>upholstery</em></h2>
           <p class="muted">Colour on a screen is only a guide. We'll send physical samples before anything is made.</p>
           <div id="materials"></div>
         </section>
@@ -95,7 +92,7 @@
         <!-- 6 Customise -->
         <section class="step" data-step="6" aria-labelledby="h6s" hidden>
           <p class="eyebrow">Step 6 of 6</p>
-          <h2 id="h6s">Customisations and accessories</h2>
+          <h2 id="h6s">Customisations and <em>accessories</em></h2>
           <div id="customs"></div>
         </section>
 
@@ -103,7 +100,7 @@
         <section class="step" data-step="7" aria-labelledby="h7s" hidden>
           <img class="print-logo" src="images/awicon-logo.png" alt="Awicon Technologies" width="480" height="240">
           <p class="eyebrow">Your theatre</p>
-          <h2 id="h7s">Summary and tentative quote</h2>
+          <h2 id="h7s">Summary and tentative <em>quote</em></h2>
           <div id="summary"></div>
           <div class="sum-actions">
             <a class="primary" id="sendWhatsapp" target="_blank" rel="noopener">Send on WhatsApp</a>

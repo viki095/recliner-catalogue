@@ -1,6 +1,6 @@
 # Recliner Catalogue
 
-One web page where clients browse Little Nap, Seatlab and Moovia recliners, pick seating size, upholstery and accessories, see a tentative price, and send their shortlist on WhatsApp.
+One web page where clients browse Little Nap, Seatlab, Moovia and Cineak recliners, pick seating size, upholstery and accessories, see a tentative price, and send their shortlist on WhatsApp.
 
 ## Updating models and prices
 
@@ -16,6 +16,7 @@ Edit **`catalogue-data.js`**. It is the only file you need to touch.
 ## Publishing on catalogue.awicontech.com (GitHub Pages)
 
 1. In the repo on GitHub: **Settings → Pages → Source: Deploy from a branch → `main` / root → Save.**
+2. Live now (sample data) at https://viki095.github.io/recliner-catalogue/ . The CNAME file was removed so that link works before DNS exists.
 2. At your domain's DNS provider, add a record:
    `CNAME   catalogue   <your-github-username>.github.io`
 3. Back in **Settings → Pages**, confirm the custom domain is `catalogue.awicontech.com` and tick **Enforce HTTPS** once it is offered.

@@ -23,7 +23,7 @@ window.CATALOGUE = {
   settings: {
     companyName: "Awicontech",
     pageTitle: "The Recliner Catalogue",
-    eyebrow: "Little Nap · Seatlab · Moovia",
+    eyebrow: "Home cinema seating",
     // WhatsApp number clients send their shortlist to: country code + number, digits only.
     whatsappNumber: "910000000000",
     email: "sales@example.com",
@@ -136,6 +136,38 @@ window.CATALOGUE = {
           { id: "leather",     name: "Genuine leather", add: 16000 }
         ]}
       ]
+    },
+    {
+      id: "cineak", name: "Cineak", origin: "Belgium",
+      tagline: "Luxury private cinema seating, found in screening rooms worldwide. Designs by Kim Hellemans.",
+      website: "https://cineak.com/home-theater/models/",
+      color: "#5B5550",
+      materialGroups: ["uph", "stitch"],
+      materials: {
+        fabric:  { note: "Designer textile",  colours: [["Graphite","#3C3B3A"],["Flint","#77726B"],["Oyster","#CFC6B8"],["Ink","#252C3A"],["Bordeaux","#5A1F26"]] },
+        suede:   { note: "Soft microfibre",   colours: [["Charcoal","#36342F"],["Mocha","#6A4C3A"],["Sage","#7D8571"]] },
+        leather: { note: "Top-grain leather", colours: [["Black","#1A1918"],["Espresso","#3E2A20"],["Cognac","#8A532C"],["Stone","#A39A8D"],["Ivory","#E6DDCC"]] },
+        std:     { note: "Tone-on-tone",      colours: [] },
+        contrast:{ note: "Double, contrast",  colours: [] },
+        diamond: { note: "Quilted",           colours: [] }
+      },
+      options: [
+        { id: "mech", name: "Mechanism", choices: [
+          { id: "dual",   name: "Dual-motorised Relax", add: 0 },
+          { id: "triple", name: "Triple-motorised (back height + headrest)", add: 0 },
+          { id: "tilt",   name: "Mechanical tilting backrest", add: 0 }
+        ]},
+        { id: "uph", name: "Upholstery", choices: [
+          { id: "fabric",  name: "Fabric",            add: 0 },
+          { id: "suede",   name: "Ultrasuede",        add: 45000 },
+          { id: "leather", name: "Top-grain leather", add: 90000 }
+        ]},
+        { id: "stitch", name: "Stitching", choices: [
+          { id: "std",      name: "Standard",          add: 0 },
+          { id: "contrast", name: "Contrast stitching", add: 15000 },
+          { id: "diamond",  name: "Diamond quilting",   add: 38000 }
+        ]}
+      ]
     }
   ],
 
@@ -179,7 +211,16 @@ window.CATALOGUE = {
     "ln-battery":   { name: "Rechargeable battery pack",            price: 9000 },
     "ln-lamp":      { name: "Side lamp",                            price: 8500,  perSeat: false },
     "ln-mushroom":  { name: "Mushroom lamp",                        price: 6500,  perSeat: false },
-    "ln-console":   { name: "Centre console",                       price: 12000, perSeat: false }
+    "ln-console":   { name: "Centre console",                       price: 12000, perSeat: false },
+    // Cineak
+    "cn-cup":       { name: "Cup holder, leather-wrapped",          price: 14000 },
+    "cn-tray":      { name: "Swivel tray table",                    price: 32000 },
+    "cn-usb":       { name: "USB-C charging",                       price: 8000 },
+    "cn-light":     { name: "LED floor lighting",                   price: 12000 },
+    "cn-console":   { name: "Storage console between seats",        price: 65000, perSeat: false },
+    "cn-club":      { name: "CLUB stool (low or high swivel)",      price: 120000, perSeat: false },
+    "cn-bond":      { name: "BOND stool (low or high swivel)",      price: 110000, perSeat: false },
+    "cn-swatch":    { name: "Leather and fabric sample kit",        price: 9000,  perSeat: false }
   },
 
   /*
@@ -643,6 +684,128 @@ window.CATALOGUE = {
       features: ["Lounger format"],
       variants: [ { name: "Lounger", seats: 1, price: 82000 } ],
       accessories: ["ln-cup", "ln-backlit", "ln-usb", "ln-battery", "ln-mushroom"]
+    },
+
+    // ---------------- CINEAK (cineak.com/home-theater/models) ----------------
+    {
+      id: "cn-chess", brand: "cineak", code: "CN-CHESS", name: "Chess",
+      collection: "Home theatre", profile: "highback", image: "",
+      size: { seatW: 23, armW: 9, depth: 41, reclined: 68, height: 42 },
+      description: "Inspired by the private clubs of old: rich materials and tailored detail.",
+      features: ["Club-style design", "Motorised recline", "Bespoke upholstery"],
+      variants: [ { name: "Single seat", seats: 1, price: 560000 }, { name: "Row of 2", seats: 2, price: 1086000 }, { name: "Row of 3", seats: 3, price: 1613000 }, { name: "Row of 4", seats: 4, price: 2128000 } ],
+      only: { mech: ["dual"] },
+      accessories: ["cn-cup", "cn-tray", "cn-usb", "cn-light", "cn-console", "cn-club", "cn-bond", "cn-swatch"]
+    },
+    {
+      id: "cn-harv", brand: "cineak", code: "CN-HARV", name: "Harv",
+      collection: "Home theatre", profile: "highback", image: "",
+      size: { seatW: 24, armW: 7, depth: 41, reclined: 69, height: 42 },
+      description: "A modern take on a vintage classic, with soft quilted upholstery.",
+      features: ["Quilted upholstery", "Three-way motorised adjustment", "Modular layouts"],
+      variants: [ { name: "Single seat", seats: 1, price: 580000 }, { name: "Row of 2", seats: 2, price: 1125000 }, { name: "Row of 3", seats: 3, price: 1670000 }, { name: "Row of 4", seats: 4, price: 2204000 } ],
+      only: { mech: ["triple"] },
+      accessories: ["cn-cup", "cn-tray", "cn-usb", "cn-light", "cn-console", "cn-club", "cn-bond", "cn-swatch"]
+    },
+    {
+      id: "cn-ollie", brand: "cineak", code: "CN-OLLIE", name: "Ollie",
+      collection: "Home theatre", profile: "lowback", image: "",
+      size: { seatW: 26, armW: 8, depth: 42, reclined: 70, height: 32 },
+      description: "Fully motorised entertainment sofa that rises from low-back sofa to high-back chair.",
+      features: ["Patented triple-motorised mechanism", "Backrest rises to high-back", "Footrest and headrest adjust"],
+      variants: [ { name: "Single seat", seats: 1, price: 620000 }, { name: "Row of 2", seats: 2, price: 1203000 }, { name: "Row of 3", seats: 3, price: 1786000 }, { name: "Row of 4", seats: 4, price: 2356000 } ],
+      only: { mech: ["triple"] },
+      accessories: ["cn-cup", "cn-tray", "cn-usb", "cn-light", "cn-console", "cn-club", "cn-bond", "cn-swatch"]
+    },
+    {
+      id: "cn-largo", brand: "cineak", code: "CN-LARGO", name: "Largo",
+      collection: "Home theatre", profile: "lowback", image: "",
+      size: { seatW: 26, armW: 8, depth: 42, reclined: 70, height: 32 },
+      description: "Design-driven, fully motorised entertainment sofa.",
+      features: ["Patented triple-motorised mechanism", "Low-back to high-back", "Modular sofa layouts"],
+      variants: [ { name: "Single seat", seats: 1, price: 640000 }, { name: "Row of 2", seats: 2, price: 1242000 }, { name: "Row of 3", seats: 3, price: 1843000 }, { name: "Row of 4", seats: 4, price: 2432000 } ],
+      only: { mech: ["triple"] },
+      accessories: ["cn-cup", "cn-tray", "cn-usb", "cn-light", "cn-console", "cn-club", "cn-bond", "cn-swatch"]
+    },
+    {
+      id: "cn-mondrian", brand: "cineak", code: "CN-MONDRIAN", name: "Mondrian",
+      collection: "Home theatre", profile: "lowback", image: "",
+      size: { seatW: 26, armW: 9, depth: 42, reclined: 70, height: 33 },
+      description: "Bold geometric lines with a plush, deconstructed look.",
+      features: ["Dual-motorised Relax", "Backrest and footrest move independently", "Design by Kim Hellemans"],
+      variants: [ { name: "Single seat", seats: 1, price: 600000 }, { name: "Row of 2", seats: 2, price: 1164000 }, { name: "Row of 3", seats: 3, price: 1728000 }, { name: "Row of 4", seats: 4, price: 2280000 } ],
+      only: { mech: ["dual"] },
+      accessories: ["cn-cup", "cn-tray", "cn-usb", "cn-light", "cn-console", "cn-club", "cn-bond", "cn-swatch"]
+    },
+    {
+      id: "cn-gramercy", brand: "cineak", code: "CN-GRAMERCY", name: "Gramercy",
+      collection: "Home theatre", profile: "lowback", image: "",
+      size: { seatW: 25, armW: 8, depth: 41, reclined: 69, height: 33 },
+      description: "Sleek, contemporary multi-purpose seating with deep comfort.",
+      features: ["Clean contemporary lines", "Dual-motorised Relax", "Cinema or media room"],
+      variants: [ { name: "Single seat", seats: 1, price: 590000 }, { name: "Row of 2", seats: 2, price: 1145000 }, { name: "Row of 3", seats: 3, price: 1699000 }, { name: "Row of 4", seats: 4, price: 2242000 } ],
+      only: { mech: ["dual"] },
+      accessories: ["cn-cup", "cn-tray", "cn-usb", "cn-light", "cn-console", "cn-club", "cn-bond", "cn-swatch"]
+    },
+    {
+      id: "cn-trevia", brand: "cineak", code: "CN-TREVIA", name: "Trevia",
+      collection: "Home theatre", profile: "lounger", image: "",
+      size: { seatW: 32, armW: 6, depth: 44, reclined: 74, height: 34 },
+      description: "Fully motorised chaise lounge with generous width and depth.",
+      features: ["Chaise lounge format", "Fully motorised", "Extra-wide seat"],
+      variants: [ { name: "Single seat", seats: 1, price: 690000 }, { name: "Row of 2", seats: 2, price: 1339000 }, { name: "Row of 3", seats: 3, price: 1987000 }, { name: "Row of 4", seats: 4, price: 2622000 } ],
+      only: { mech: ["dual"] },
+      accessories: ["cn-cup", "cn-tray", "cn-usb", "cn-light", "cn-console", "cn-club", "cn-bond", "cn-swatch"]
+    },
+    {
+      id: "cn-strato", brand: "cineak", code: "CN-STRATO", name: "Strato",
+      collection: "Home theatre", profile: "lowback", image: "",
+      size: { seatW: 25, armW: 8, depth: 41, reclined: 69, height: 34 },
+      description: "Abstract, modular design that hides full theatre-seat function.",
+      features: ["Sofa comfort, high-back performance", "Dual-motorised Relax", "Truly modular"],
+      variants: [ { name: "Single seat", seats: 1, price: 610000 }, { name: "Row of 2", seats: 2, price: 1183000 }, { name: "Row of 3", seats: 3, price: 1757000 }, { name: "Row of 4", seats: 4, price: 2318000 } ],
+      only: { mech: ["dual"] },
+      accessories: ["cn-cup", "cn-tray", "cn-usb", "cn-light", "cn-console", "cn-club", "cn-bond", "cn-swatch"]
+    },
+    {
+      id: "cn-ferrier", brand: "cineak", code: "CN-FERRIER", name: "Ferrier",
+      collection: "Home theatre", profile: "highback", image: "",
+      size: { seatW: 24, armW: 7, depth: 41, reclined: 69, height: 42 },
+      description: "Diamond stitching for a refined, luxurious look.",
+      features: ["Diamond stitching", "Dual-motorised Relax", "Steel frame"],
+      variants: [ { name: "Single seat", seats: 1, price: 570000 }, { name: "Row of 2", seats: 2, price: 1106000 }, { name: "Row of 3", seats: 3, price: 1642000 }, { name: "Row of 4", seats: 4, price: 2166000 } ],
+      only: { mech: ["dual"], stitch: ["diamond", "std"] },
+      accessories: ["cn-cup", "cn-tray", "cn-usb", "cn-light", "cn-console", "cn-club", "cn-bond", "cn-swatch"]
+    },
+    {
+      id: "cn-fortuny", brand: "cineak", code: "CN-FORTUNY", name: "Fortuny",
+      collection: "Home theatre", profile: "highback", image: "",
+      size: { seatW: 24, armW: 7, depth: 41, reclined: 69, height: 43 },
+      description: "Cineak's first chair, made for the world's most luxurious private cinemas.",
+      features: ["Signature theatre chair", "Finest leather or fabric", "Dual-motorised Relax"],
+      variants: [ { name: "Single seat", seats: 1, price: 650000 }, { name: "Row of 2", seats: 2, price: 1261000 }, { name: "Row of 3", seats: 3, price: 1872000 }, { name: "Row of 4", seats: 4, price: 2470000 } ],
+      only: { mech: ["dual"] },
+      accessories: ["cn-cup", "cn-tray", "cn-usb", "cn-light", "cn-console", "cn-club", "cn-bond", "cn-swatch"]
+    },
+    {
+      id: "cn-nero", brand: "cineak", code: "CN-NERO", name: "Nero",
+      collection: "Home theatre", profile: "highback", image: "",
+      size: { seatW: 24, armW: 7, depth: 41, reclined: 69, height: 43 },
+      description: "Following Fortuny: ergonomic contours with multiple stitching finishes.",
+      features: ["Multiple stitching finishes", "Ergonomic contours", "Dual-motorised Relax"],
+      variants: [ { name: "Single seat", seats: 1, price: 590000 }, { name: "Row of 2", seats: 2, price: 1145000 }, { name: "Row of 3", seats: 3, price: 1699000 }, { name: "Row of 4", seats: 4, price: 2242000 } ],
+      only: { mech: ["dual"] },
+      accessories: ["cn-cup", "cn-tray", "cn-usb", "cn-light", "cn-console", "cn-club", "cn-bond", "cn-swatch"]
+    },
+    {
+      id: "cn-hughes", brand: "cineak", code: "CN-HUGHES", name: "Hughes",
+      collection: "Home theatre", profile: "highback", image: "",
+      size: { seatW: 23, armW: 6, depth: 36, reclined: 52, height: 41 },
+      description: "Compact theatre seat for rooms with limited space or riser depth.",
+      features: ["Compact footprint", "Mechanically tilting backrest", "Ideal for shallow risers"],
+      variants: [ { name: "Single seat", seats: 1, price: 380000 }, { name: "Row of 2", seats: 2, price: 737000 }, { name: "Row of 3", seats: 3, price: 1094000 }, { name: "Row of 4", seats: 4, price: 1444000 } ],
+      only: { mech: ["tilt"] },
+      accessories: ["cn-cup", "cn-tray", "cn-usb", "cn-light", "cn-console", "cn-club", "cn-bond", "cn-swatch"]
     }
   ]
 };

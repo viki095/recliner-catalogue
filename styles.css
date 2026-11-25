@@ -1,42 +1,33 @@
 :root {
-  --bg: #F1EADB;
-  --surface: #F6F1E6;
-  --panel: #EAE1CE;
-  --ink: #1C1A17;
-  --ink-2: #6B6456;
-  --line: #D8CDB8;
-  --gold: #9C7A3C;
-  --accent: #1C1A17;
-  --accent-ink: #F6F1E6;
-  --danger: #9A3B2E;
-  --shadow: 0 18px 50px rgba(40, 30, 10, .10);
-  color-scheme: light;
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #14130F;
-    --surface: #1B1915;
-    --panel: #211F1A;
-    --ink: #ECE5D5;
-    --ink-2: #A59C8A;
-    --line: #36322A;
-    --gold: #C9A46A;
-    --accent: #ECE5D5;
-    --accent-ink: #14130F;
-    --danger: #D9826F;
-    --shadow: 0 18px 50px rgba(0, 0, 0, .45);
-    color-scheme: dark;
-  }
+  /* Matched to awicontech.com: near-black, off-white type, white pill buttons, rounded cards.
+     --gold is the accent used for labels and dimensions (Awicon orange). */
+  --bg: #0B0B0B;
+  --surface: #161616;
+  --panel: #1D1D1D;
+  --ink: #EBEBEB;
+  --ink-2: #9C9C9C;
+  --line: #2A2A2A;
+  --gold: #F2683A;
+  --accent: #FFFFFF;
+  --accent-ink: #000000;
+  --danger: #FF7A66;
+  --tile: #E5E5E5;
+  --radius: 16px;
+  --shadow: 0 24px 60px rgba(0, 0, 0, .55);
+  --sans: "Inter Tight", "Helvetica Neue", Arial, sans-serif;
+  --serif: "Instrument Serif", Georgia, serif;
+  color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
 body {
   margin: 0; background: var(--bg); color: var(--ink);
-  font: 400 15px/1.6 Jost, "Helvetica Neue", system-ui, sans-serif;
-  letter-spacing: .01em;
+  font: 400 15px/1.6 var(--sans);
+  letter-spacing: 0;
 }
-h1, h2, h3 { font-weight: 300; margin: 0; letter-spacing: -.01em; }
+h1, h2, h3 { font-weight: 400; margin: 0; letter-spacing: -.02em; }
+h1 em, h2 em, h3 em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: 0; }
 button, input, select { font: inherit; color: inherit; letter-spacing: inherit; }
 a { color: inherit; }
 .wrap { max-width: 1240px; margin: 0 auto; padding: 0 16px; }
@@ -67,7 +58,7 @@ a { color: inherit; }
 }
 .shortlist-btn:hover { border-bottom-color: var(--gold); }
 .count {
-  border: 1px solid var(--ink); border-radius: 999px; min-width: 24px; height: 24px;
+  border: 1px solid var(--ink); background: var(--ink); color: var(--bg); border-radius: 999px; min-width: 24px; height: 24px;
   display: inline-grid; place-items: center; font-size: 11px; letter-spacing: 0;
 }
 
@@ -90,7 +81,7 @@ a { color: inherit; }
 .hero h1 { font-size: clamp(40px, 7vw, 88px); line-height: 1.02; }
 .lede { margin: 0; color: var(--ink-2); max-width: 460px; font-size: 16px; }
 .notice {
-  margin: 18px 0 0; padding: 10px 14px; border: 1px solid var(--gold); color: var(--ink);
+  margin: 18px 0 0; padding: 10px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--ink);
   font-size: 13px; max-width: 460px;
 }
 
@@ -108,7 +99,7 @@ a { color: inherit; }
 .filter-row { display: grid; grid-template-columns: 1fr 220px 220px; gap: 12px; margin-top: 20px; }
 .field input, .field select {
   width: 100%; height: 44px; border: 1px solid var(--line); background: var(--surface);
-  border-radius: 0; padding: 0 14px; appearance: none; -webkit-appearance: none;
+  border-radius: 200px; padding: 0 14px; appearance: none; -webkit-appearance: none;
 }
 .field select {
   background-image: linear-gradient(45deg, transparent 50%, var(--ink-2) 50%), linear-gradient(135deg, var(--ink-2) 50%, transparent 50%);
@@ -137,7 +128,8 @@ a { color: inherit; }
 }
 .card:hover { background: var(--surface); }
 .card:hover .view { color: var(--gold); }
-.card .media { aspect-ratio: 3 / 2; display: grid; place-items: center; margin-bottom: 10px; color: var(--ink); }
+.card .media { aspect-ratio: 3 / 2; display: grid; place-items: center; margin-bottom: 10px; color: #1C1A17; background: var(--tile); border-radius: var(--radius); overflow: hidden; }
+.card .media img { mix-blend-mode: multiply; object-fit: contain !important; }
 .card .media img { width: 100%; height: 100%; object-fit: cover; }
 .card .media svg { width: 88%; height: auto; }
 .card-top { display: flex; justify-content: space-between; gap: 8px; }
@@ -157,7 +149,7 @@ a { color: inherit; }
 .draw .hatch { fill: url(#hatch); stroke: currentColor; stroke-width: 1.1; }
 .draw .floor { stroke: var(--line); stroke-width: 1; }
 .draw .dim { stroke: var(--gold); stroke-width: .8; }
-.draw text { font: 500 7px Jost, sans-serif; letter-spacing: .12em; fill: var(--gold); }
+.draw text { font: 500 7px var(--sans); letter-spacing: .12em; fill: var(--gold); }
 
 /* Dialogs */
 dialog { border: 0; padding: 0; color: var(--ink); background: transparent; max-width: none; max-height: none; }
@@ -168,10 +160,10 @@ dialog::backdrop { background: rgba(20, 16, 10, .55); }
 }
 .sheet { width: min(1080px, calc(100% - 32px)); margin: auto; }
 .sheet-inner {
-  position: relative; background: var(--surface); box-shadow: var(--shadow);
+  position: relative; background: var(--surface); box-shadow: var(--shadow); border-radius: 24px; overflow: hidden;
   display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); grid-template-rows: minmax(0, 1fr); height: min(860px, calc(100vh - 48px));
 }
-.m-media { background: var(--panel); padding: 36px 28px; display: flex; flex-direction: column; justify-content: center; gap: 6px; color: var(--ink); }
+.m-media { background: var(--tile); --ink: #1C1A17; --ink-2: #555; padding: 36px 28px; display: flex; flex-direction: column; justify-content: center; gap: 6px; color: var(--ink); }
 .m-draw svg, .m-row svg { width: 100%; height: auto; display: block; }
 .m-row svg { max-height: 220px; width: auto; max-width: 100%; margin: 0 auto; }
 .m-draw img { width: 100%; height: auto; display: block; }
@@ -188,7 +180,7 @@ legend { color: var(--gold); font-size: 11px; font-weight: 500; letter-spacing: 
 .chips label { cursor: pointer; }
 .chips input { position: absolute; opacity: 0; pointer-events: none; }
 .chips span {
-  display: inline-flex; flex-direction: column; border: 1px solid var(--line); padding: 9px 14px; font-size: 14px; min-width: 120px;
+  display: inline-flex; flex-direction: column; border: 1px solid var(--line); padding: 9px 16px; font-size: 14px; min-width: 120px; border-radius: 12px;
   transition: border-color .15s;
 }
 .chips span small { color: var(--ink-2); font-size: 12px; }
@@ -213,10 +205,10 @@ legend { color: var(--gold); font-size: 11px; font-weight: 500; letter-spacing: 
 .m-total div { display: flex; flex-direction: column; gap: 2px; }
 .m-total strong { font-size: 30px; font-weight: 300; line-height: 1.1; }
 .primary {
-  background: var(--accent); color: var(--accent-ink); border: 0; padding: 14px 22px; cursor: pointer;
+  background: var(--accent); color: var(--accent-ink); border: 0; padding: 14px 24px; cursor: pointer; border-radius: 200px;
   font-size: 12px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; text-decoration: none; text-align: center;
 }
-.primary:hover { background: var(--gold); color: #fff; }
+.primary:hover { background: #D9D9D9; color: #000; }
 .link { background: none; border: 0; padding: 0; color: var(--ink-2); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; font-size: 13px; }
 .m-total + .link { margin-top: 40px; }
 .danger { color: var(--danger); }
@@ -245,7 +237,7 @@ legend { color: var(--gold); font-size: 11px; font-weight: 500; letter-spacing: 
 .drawer-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 14px; }
 .drawer-actions .primary { grid-column: 1 / -1; }
 .drawer-actions button:not(.primary) {
-  border: 1px solid var(--line); background: none; padding: 11px; cursor: pointer;
+  border: 1px solid var(--line); background: none; padding: 11px; cursor: pointer; border-radius: 200px;
   font-size: 12px; letter-spacing: .16em; text-transform: uppercase;
 }
 .drawer-foot .link { margin-top: 14px; }
@@ -257,7 +249,7 @@ legend { color: var(--gold); font-size: 11px; font-weight: 500; letter-spacing: 
 /* Toast */
 .toast {
   position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 20px); opacity: 0; pointer-events: none;
-  background: var(--accent); color: var(--accent-ink); padding: 10px 18px; font-size: 13px; letter-spacing: .06em;
+  background: var(--accent); color: var(--accent-ink); padding: 10px 18px; font-size: 13px; letter-spacing: .02em; border-radius: 200px;
   transition: opacity .2s, transform .2s; z-index: 100;
 }
 .toast.show { opacity: 1; transform: translate(-50%, 0); }
@@ -287,6 +279,7 @@ legend { color: var(--gold); font-size: 11px; font-weight: 500; letter-spacing: 
 @media print {
   .site-header, .hero, .controls, #grid, .site-footer, .toast, .drawer-actions, .link, .close, .s-item .qty button, .s-item .remove { display: none !important; }
   body { background: #fff; color: #000; }
+  :root { --bg: #fff; --surface: #fff; --panel: #f2f2f2; --ink: #111; --ink-2: #555; --line: #ccc; --gold: #C4471E; }
   .drawer[open] { position: static; width: 100%; }
   .drawer-inner { height: auto; box-shadow: none; }
   .drawer-list { overflow: visible; }
