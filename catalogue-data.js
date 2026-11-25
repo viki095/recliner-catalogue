@@ -349,7 +349,7 @@ window.CATALOGUE = {
     },
     {
       id: "mv-venice", brand: "moovia", code: "MV-VENICE", name: "Venice",
-      collection: "Home theatre", profile: "highback", image: "",
+      collection: "Home theatre", profile: "highback", image: "images/models/mv-venice.jpg",
       size: { seatW: 24, armW: 6, depth: 41, reclined: 70, height: 43 },
       description: "Home theatre seat from the moovia® collection, built from sectional elements.",
       features: ["Modular: straight or curved rows", "Adjustable head-, back- and footrest", "Choice of armrest widths"],
@@ -363,7 +363,7 @@ window.CATALOGUE = {
     },
     {
       id: "mv-chesterfield", brand: "moovia", code: "MV-CHESTER", name: "Chesterfield",
-      collection: "Home theatre", profile: "deep", image: "",
+      collection: "Home theatre", profile: "deep", image: "images/models/mv-chesterfield.png",
       size: { seatW: 25, armW: 7, depth: 42, reclined: 71, height: 40 },
       description: "Classic Chesterfield styling with modern home cinema functions.",
       features: ["Chesterfield styling", "Motorised recline", "Modular rows"],
@@ -388,7 +388,7 @@ window.CATALOGUE = {
     },
     {
       id: "mv-dallas", brand: "moovia", code: "MV-DALLAS", name: "Dallas",
-      collection: "Home theatre", profile: "highback", image: "",
+      collection: "Home theatre", profile: "highback", image: "images/models/mv-dallas.jpg",
       size: { seatW: 24, armW: 6, depth: 41, reclined: 70, height: 43 },
       description: "Home theatre seat from the moovia® collection, built from sectional elements.",
       features: ["Modular: straight or curved rows", "Motorised recline", "Choice of armrest widths"],
@@ -401,7 +401,7 @@ window.CATALOGUE = {
     },
     {
       id: "mv-stockholm", brand: "moovia", code: "MV-STOCKHOLM", name: "Stockholm",
-      collection: "Home theatre", profile: "highback", image: "",
+      collection: "Home theatre", profile: "highback", image: "images/models/mv-stockholm.jpg",
       size: { seatW: 24, armW: 6, depth: 41, reclined: 70, height: 43 },
       description: "Home theatre seat from the moovia® collection, built from sectional elements.",
       features: ["Modular: straight or curved rows", "Motorised recline", "Ambient lighting options"],
@@ -414,7 +414,7 @@ window.CATALOGUE = {
     },
     {
       id: "mv-ibiza", brand: "moovia", code: "MV-IBIZA", name: "Ibiza",
-      collection: "Home theatre", profile: "lowback", image: "",
+      collection: "Home theatre", profile: "lowback", image: "images/models/mv-ibiza.jpg",
       size: { seatW: 24, armW: 6, depth: 41, reclined: 70, height: 36 },
       description: "Home theatre seat from the moovia® collection, built from sectional elements.",
       features: ["Modular rows", "Motorised recline", "Chaise longue option"],
@@ -438,7 +438,7 @@ window.CATALOGUE = {
     },
     {
       id: "mv-boston", brand: "moovia", code: "MV-BOSTON", name: "Boston",
-      collection: "Home theatre", profile: "highback", image: "",
+      collection: "Home theatre", profile: "highback", image: "images/models/mv-boston.jpg",
       size: { seatW: 24, armW: 6, depth: 41, reclined: 70, height: 43 },
       description: "Home theatre seat from the moovia® collection, built from sectional elements.",
       features: ["Modular: straight or curved rows", "Motorised recline", "Storage and cup holder options"],
@@ -451,7 +451,7 @@ window.CATALOGUE = {
     },
     {
       id: "mv-berlin", brand: "moovia", code: "MV-BERLIN", name: "Berlin",
-      collection: "Home theatre", profile: "highback", image: "",
+      collection: "Home theatre", profile: "highback", image: "images/models/mv-berlin.jpg",
       size: { seatW: 24, armW: 6, depth: 41, reclined: 70, height: 43 },
       description: "Home theatre seat from the moovia® collection, built from sectional elements.",
       features: ["Modular: straight or curved rows", "Motorised recline", "Choice of armrest widths"],
@@ -656,7 +656,7 @@ window.CATALOGUE = {
     },
     {
       id: "ln-millor", brand: "littlenap", code: "LN-MILLOR-NX", name: "Millor-NX",
-      collection: "Home theatre", profile: "highback", image: "",
+      collection: "Home theatre", profile: "highback", image: "images/models/ln-millor.jpg",
       size: { seatW: 22, armW: 7, depth: 39, reclined: 66, height: 41 },
       description: "Redefines the Millor with a distinctive three-layered back, blending its timeless style with modern technology.",
       features: ["Three-layered back", "Single seats or rows"],
@@ -665,7 +665,7 @@ window.CATALOGUE = {
     },
     {
       id: "ln-ritz", brand: "littlenap", code: "LN-RITZ", name: "Ritz",
-      collection: "Home theatre", profile: "deep", image: "",
+      collection: "Home theatre", profile: "deep", image: "images/models/ln-ritz.jpg",
       size: { seatW: 24, armW: 7, depth: 41, reclined: 69, height: 41 },
       description: "Home theatre seating.",
       features: ["Home theatre seating", "Single seats or rows"],
@@ -674,7 +674,7 @@ window.CATALOGUE = {
     },
     {
       id: "ln-verve", brand: "littlenap", code: "LN-VERVE", name: "Verve",
-      collection: "Home theatre", profile: "highback", image: "",
+      collection: "Home theatre", profile: "highback", image: "images/models/ln-verve.jpg",
       size: { seatW: 22, armW: 7, depth: 39, reclined: 66, height: 41 },
       description: "Theatre recliner.",
       features: ["Home theatre seating", "Single seats or rows"],
@@ -683,7 +683,7 @@ window.CATALOGUE = {
     },
     {
       id: "ln-primus", brand: "littlenap", code: "LN-PRIMUS", name: "Primus",
-      collection: "Home theatre", profile: "highback", image: "",
+      collection: "Home theatre", profile: "highback", image: "images/models/ln-primus.jpg",
       size: { seatW: 22, armW: 7, depth: 39, reclined: 66, height: 41 },
       description: "Theatre recliner.",
       features: ["Home theatre seating", "Single seats or rows"],
@@ -692,7 +692,7 @@ window.CATALOGUE = {
     },
     {
       id: "ln-aderia", brand: "littlenap", code: "LN-ADERIA", name: "Aderia",
-      collection: "Home theatre", profile: "lowback", image: "",
+      collection: "Home theatre", profile: "lowback", image: "images/models/ln-aderia.jpg",
       size: { seatW: 22, armW: 7, depth: 39, reclined: 66, height: 34 },
       description: "A bestseller: modern design, double-needle stitching, contrast piping and a double swivel table over the armrest.",
       features: ["Double-needle stitch work", "Contrast piping", "Double swivel table, touch sensor control"],
@@ -701,7 +701,7 @@ window.CATALOGUE = {
     },
     {
       id: "ln-ebony", brand: "littlenap", code: "LN-EBONY", name: "Ebony",
-      collection: "Home theatre", profile: "deep", image: "",
+      collection: "Home theatre", profile: "deep", image: "images/models/ln-ebony.jpg",
       size: { seatW: 24, armW: 7, depth: 41, reclined: 69, height: 41 },
       description: "Ultra-premium non-chaise recliner with straight lines and elegant aesthetics.",
       features: ["Multiplex grade", "Home theatre seating", "Single seats or rows"],
@@ -710,7 +710,7 @@ window.CATALOGUE = {
     },
     {
       id: "ln-trident", brand: "littlenap", code: "LN-TRIDENT", name: "Trident",
-      collection: "Home theatre", profile: "highback", image: "",
+      collection: "Home theatre", profile: "highback", image: "images/models/ln-trident.jpg",
       size: { seatW: 22, armW: 7, depth: 39, reclined: 66, height: 42 },
       description: "Best-in-class recliner inspired by premium automobile seats, with a bucket seat in PU foam.",
       features: ["Automobile-inspired bucket seat", "Made entirely of PU foam", "Premium range"],
@@ -719,7 +719,7 @@ window.CATALOGUE = {
     },
     {
       id: "ln-zenith", brand: "littlenap", code: "LN-ZENITH", name: "Zenith",
-      collection: "Home theatre", profile: "highback", image: "",
+      collection: "Home theatre", profile: "highback", image: "images/models/ln-zenith.jpg",
       size: { seatW: 22, armW: 7, depth: 39, reclined: 66, height: 42 },
       description: "Inspired by premium automobile seats, made entirely of PU foam with a bucket seat.",
       features: ["Automobile-inspired bucket seat", "Made entirely of PU foam", "Premium range"],
@@ -728,7 +728,7 @@ window.CATALOGUE = {
     },
     {
       id: "ln-gatsby", brand: "littlenap", code: "LN-GATSBY", name: "Gatsby",
-      collection: "Home theatre", profile: "highback", image: "",
+      collection: "Home theatre", profile: "highback", image: "images/models/ln-gatsby.jpg",
       size: { seatW: 22, armW: 7, depth: 39, reclined: 66, height: 41 },
       description: "Exclusive design with technology-driven features.",
       features: ["Exclusive design", "Technology-driven features"],
@@ -737,7 +737,7 @@ window.CATALOGUE = {
     },
     {
       id: "ln-fortuna", brand: "littlenap", code: "LN-FORTUNA", name: "Fortuna",
-      collection: "Home theatre", profile: "deep", image: "",
+      collection: "Home theatre", profile: "deep", image: "images/models/ln-fortuna.jpg",
       size: { seatW: 24, armW: 7, depth: 41, reclined: 69, height: 41 },
       description: "Exclusive design with technology-driven features.",
       features: ["Exclusive design", "Technology-driven features"],
@@ -746,7 +746,7 @@ window.CATALOGUE = {
     },
     {
       id: "ln-nuvo", brand: "littlenap", code: "LN-NUVO", name: "Nuvo",
-      collection: "Home theatre", profile: "highback", image: "",
+      collection: "Home theatre", profile: "highback", image: "images/models/ln-nuvo.jpg",
       size: { seatW: 22, armW: 7, depth: 39, reclined: 66, height: 41 },
       description: "Inspired by premium automobile seats and made in PU foam.",
       features: ["Automobile-inspired design", "PU foam construction"],
@@ -757,7 +757,7 @@ window.CATALOGUE = {
     // ---------------- LITTLE NAP : loungers ----------------
     {
       id: "ln-lunar", brand: "littlenap", code: "LN-LUNAR", name: "Lunar Lounger",
-      collection: "Lounger", profile: "lounger", image: "",
+      collection: "Lounger", profile: "lounger", image: "images/models/ln-lunar.jpg",
       description: "Premium motorised lounger.",
       features: ["Motorised", "Lounger format"],
       variants: [ { name: "Lounger", seats: 1, price: 96000 } ],
