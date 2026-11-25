@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Recliner Catalogue</title>
-  <meta name="description" content="Browse recliners from Little Nap, Seatlab and Moovia, choose accessories and see a tentative price.">
+  <title>The Recliner Catalogue</title>
+  <meta name="description" content="Browse recliners and home cinema seating from Little Nap, Seatlab and Moovia, choose options and accessories, and see a tentative price.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -22,9 +22,15 @@
 
   <main>
     <section class="hero wrap">
-      <h1 id="heroTitle">Recliner Catalogue</h1>
-      <p class="lede">Browse every model from our brands in one place. Pick a seating size, upholstery and accessories to see a tentative price, then send your shortlist to us.</p>
-      <div class="notice" id="sampleNotice" hidden>Sample data: models and prices shown are placeholders until the catalogue is updated.</div>
+      <p class="eyebrow" id="eyebrow"></p>
+      <div class="hero-grid">
+        <h1 id="heroTitle"></h1>
+        <div>
+          <p class="lede">Every model from our three brands, in one place. Choose a seating size, mechanism, upholstery and accessories to see a tentative price, then send your shortlist to us.</p>
+          <p class="notice" id="sampleNotice" hidden>Model names are from each brand's website. Prices shown are sample figures for now.</p>
+        </div>
+      </div>
+      <div class="rule"></div>
     </section>
 
     <section class="wrap controls" aria-label="Filters">
@@ -32,16 +38,16 @@
       <div class="filter-row">
         <label class="field search">
           <span class="sr">Search</span>
-          <input type="search" id="search" placeholder="Search model, code or feature">
+          <input type="search" id="search" placeholder="Search model, collection or feature">
         </label>
         <label class="field">
-          <span class="sr">Type</span>
+          <span class="sr">Collection</span>
           <select id="typeFilter"></select>
         </label>
         <label class="field">
           <span class="sr">Sort</span>
           <select id="sort">
-            <option value="brand">Sort: Brand</option>
+            <option value="brand">Sort by brand</option>
             <option value="price-asc">Price: low to high</option>
             <option value="price-desc">Price: high to low</option>
             <option value="name">Name A–Z</option>
@@ -51,11 +57,12 @@
       <p class="result-count" id="resultCount" aria-live="polite"></p>
     </section>
 
-    <section class="wrap grid" id="grid" aria-label="Models"></section>
+    <section class="wrap" id="grid" aria-label="Models"></section>
   </main>
 
   <footer class="site-footer">
     <div class="wrap">
+      <p class="eyebrow">Note</p>
       <p id="priceNote"></p>
       <p class="muted" id="contactLine"></p>
     </div>
@@ -65,9 +72,14 @@
   <dialog class="sheet" id="modelDialog" aria-labelledby="mTitle">
     <form method="dialog" class="sheet-inner" id="modelForm">
       <button class="close" value="close" aria-label="Close">×</button>
-      <div class="m-media" id="mMedia"></div>
+      <div class="m-media">
+        <div class="m-draw" id="mMedia"></div>
+        <p class="caption" id="mCaption1">Side elevation · not to scale</p>
+        <div class="m-row" id="mRow"></div>
+        <p class="caption" id="mCaption2"></p>
+      </div>
       <div class="m-body">
-        <p class="m-brand" id="mBrand"></p>
+        <p class="eyebrow" id="mBrand"></p>
         <h2 id="mTitle"></h2>
         <p class="m-desc" id="mDesc"></p>
         <ul class="m-features" id="mFeatures"></ul>
@@ -76,10 +88,7 @@
           <legend>Seating</legend>
           <div class="chips" id="mVariants"></div>
         </fieldset>
-        <fieldset>
-          <legend>Upholstery</legend>
-          <div class="chips" id="mUpholstery"></div>
-        </fieldset>
+        <div id="mOptions"></div>
         <fieldset>
           <legend>Accessories</legend>
           <div class="acc-list" id="mAccessories"></div>
@@ -87,7 +96,7 @@
 
         <div class="m-total">
           <div>
-            <span class="muted">Tentative price</span>
+            <span class="eyebrow">Tentative price</span>
             <strong id="mTotal"></strong>
             <small class="muted" id="mBreakdown"></small>
           </div>
@@ -102,12 +111,13 @@
   <dialog class="drawer" id="shortlistDialog" aria-labelledby="sTitle">
     <div class="drawer-inner">
       <div class="drawer-head">
-        <h2 id="sTitle">Your shortlist</h2>
+        <p class="eyebrow">Your selection</p>
+        <h2 id="sTitle">Shortlist</h2>
         <button class="close" type="button" id="closeShortlist" aria-label="Close">×</button>
       </div>
       <div class="drawer-list" id="shortlistItems"></div>
       <div class="drawer-foot">
-        <div class="grand"><span>Estimated total</span><strong id="grandTotal"></strong></div>
+        <div class="grand"><span class="eyebrow">Estimated total</span><strong id="grandTotal"></strong></div>
         <p class="muted small" id="drawerNote"></p>
         <div class="drawer-actions">
           <a class="primary" id="sendWhatsapp" target="_blank" rel="noopener">Send on WhatsApp</a>
