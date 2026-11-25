@@ -28,3 +28,22 @@ To use a different subdomain, change the name in the `CNAME` file and in the DNS
 python3 -m http.server 8000
 ```
 then open http://localhost:8000
+
+## Home theatre planner (index.html)
+
+The home page is now a 6-step planner; the full catalogue moved to `models.html`.
+
+1. Room width × depth × height (feet or metres)
+2. Number of rows (suggests how many fit)
+3. Seats per row, straight or wedged (curved) arms
+4. Collection per row (home theatre models only) with quantity; warns if a row leaves less than 2 ft on either side
+5. Materials and upholstery with colour swatches (plus trim for Seatlab)
+6. Other options and accessories
+
+Then a summary with a scale room plan, fit checks, price, WhatsApp / copy / print, and a shareable plan link.
+
+What to edit in `catalogue-data.js`:
+- `settings.planner`: clearances, riser height, headroom, wedged-arm surcharge (inches / rupees)
+- each home theatre model's `size`: seat width, arm width, upright and reclined depth, back height (inches)
+- each brand's `materials`: note and colour swatches per upholstery/trim choice (`["Name", "#hex"]`)
+- `image`: photos go in `images/models/` (Rome, Marbella and Milano already have one)

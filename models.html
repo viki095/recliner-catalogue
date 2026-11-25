@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Recliner Catalogue</title>
+  <meta name="description" content="Browse recliners and home cinema seating from Little Nap, Seatlab and Moovia, choose options and accessories, and see a tentative price.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="images/awicon-icon.png">
+  <link rel="apple-touch-icon" href="images/awicon-icon.png">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="logo" href="#" id="logo" aria-label="Awicon Technologies">
+        <picture>
+          <source srcset="images/awicon-logo-white.png" media="(prefers-color-scheme: dark)">
+          <img src="images/awicon-logo.png" alt="Awicon Technologies" width="480" height="240">
+        </picture>
+      </a>
+      <nav class="top-nav"><a href="index.html">Plan a theatre</a><a href="models.html" aria-current="page">All models</a></nav>
+      <button class="shortlist-btn" id="openShortlist" type="button" aria-haspopup="dialog">
+        Shortlist <span class="count" id="shortlistCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <p class="eyebrow" id="eyebrow"></p>
+      <div class="hero-grid">
+        <h1 id="heroTitle"></h1>
+        <div>
+          <p class="lede">Every model from our three brands, in one place. Choose a seating size, mechanism, upholstery and accessories to see a tentative price, then send your shortlist to us.</p>
+          <p class="notice" id="sampleNotice" hidden>Model names are from each brand's website. Prices shown are sample figures for now.</p>
+        </div>
+      </div>
+      <div class="rule"></div>
+    </section>
+
+    <section class="wrap controls" aria-label="Filters">
+      <div class="brand-tabs" id="brandTabs" role="tablist"></div>
+      <div class="filter-row">
+        <label class="field search">
+          <span class="sr">Search</span>
+          <input type="search" id="search" placeholder="Search model, collection or feature">
+        </label>
+        <label class="field">
+          <span class="sr">Collection</span>
+          <select id="typeFilter"></select>
+        </label>
+        <label class="field">
+          <span class="sr">Sort</span>
+          <select id="sort">
+            <option value="brand">Sort by brand</option>
+            <option value="price-asc">Price: low to high</option>
+            <option value="price-desc">Price: high to low</option>
+            <option value="name">Name A–Z</option>
+          </select>
+        </label>
+      </div>
+      <p class="result-count" id="resultCount" aria-live="polite"></p>
+    </section>
+
+    <section class="wrap" id="grid" aria-label="Models"></section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="eyebrow">Note</p>
+      <p id="priceNote"></p>
+      <p class="muted" id="contactLine"></p>
+    </div>
+  </footer>
+
+  <!-- Model detail / configurator -->
+  <dialog class="sheet" id="modelDialog" aria-labelledby="mTitle">
+    <form method="dialog" class="sheet-inner" id="modelForm">
+      <button class="close" value="close" aria-label="Close">×</button>
+      <div class="m-media">
+        <div class="m-draw" id="mMedia"></div>
+        <p class="caption" id="mCaption1">Side elevation · not to scale</p>
+        <div class="m-row" id="mRow"></div>
+        <p class="caption" id="mCaption2"></p>
+      </div>
+      <div class="m-body">
+        <p class="eyebrow" id="mBrand"></p>
+        <h2 id="mTitle"></h2>
+        <p class="m-desc" id="mDesc"></p>
+        <ul class="m-features" id="mFeatures"></ul>
+
+        <fieldset>
+          <legend>Seating</legend>
+          <div class="chips" id="mVariants"></div>
+        </fieldset>
+        <div id="mOptions"></div>
+        <fieldset>
+          <legend>Accessories</legend>
+          <div class="acc-list" id="mAccessories"></div>
+        </fieldset>
+
+        <div class="m-total">
+          <div>
+            <span class="eyebrow">Tentative price</span>
+            <strong id="mTotal"></strong>
+            <small class="muted" id="mBreakdown"></small>
+          </div>
+          <button class="primary" type="button" id="mAdd">Add to shortlist</button>
+        </div>
+        <button class="link" type="button" id="mShare">Copy link to this model</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Shortlist drawer -->
+  <dialog class="drawer" id="shortlistDialog" aria-labelledby="sTitle">
+    <div class="drawer-inner">
+      <div class="drawer-head">
+        <img class="print-logo" src="images/awicon-logo.png" alt="Awicon Technologies" width="480" height="240">
+        <p class="eyebrow">Your selection</p>
+        <h2 id="sTitle">Shortlist</h2>
+        <button class="close" type="button" id="closeShortlist" aria-label="Close">×</button>
+      </div>
+      <div class="drawer-list" id="shortlistItems"></div>
+      <div class="drawer-foot">
+        <div class="grand"><span class="eyebrow">Estimated total</span><strong id="grandTotal"></strong></div>
+        <p class="muted small" id="drawerNote"></p>
+        <div class="drawer-actions">
+          <a class="primary" id="sendWhatsapp" target="_blank" rel="noopener">Send on WhatsApp</a>
+          <button type="button" id="copyQuote">Copy as text</button>
+          <button type="button" id="printQuote">Print / PDF</button>
+        </div>
+        <button class="link danger" type="button" id="clearShortlist">Clear shortlist</button>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="catalogue-data.js"></script>
+  <script src="drawings.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

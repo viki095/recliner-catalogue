@@ -29,7 +29,18 @@ window.CATALOGUE = {
     email: "sales@example.com",
     currency: "INR",
     priceNote: "Prices are tentative and exclude GST, delivery and installation. Final quote on confirmation.",
-    sampleData: true
+    sampleData: true,
+
+    // Room planner rules (all in inches). Change these to suit how you plan rooms.
+    planner: {
+      minSideGap: 24,      // warn if a row leaves less than 2 ft on either side
+      minFrontSpace: 72,   // screen wall to front row's footrests (speakers + walkway)
+      rowGap: 12,          // walkway behind each reclined footrest
+      rearGap: 6,          // back row to back wall
+      riser: 12,           // each row behind the first is raised this much
+      minHeadroom: 84,     // ceiling height left above the top riser (7 ft)
+      wedgeArmAdd: 8000    // extra per seat for wedged (curved-row) arms
+    }
   },
 
   /*
@@ -43,6 +54,21 @@ window.CATALOGUE = {
       tagline: "Design-led private cinema seating, assembled to the dimensions of the room.",
       website: "https://seatlab.in",
       color: "#9C7A3C",
+      // Shown in the planner's Materials step. Keys match the Upholstery / Trim choice ids.
+      // Colours are SAMPLE shades: replace with the brand's real swatch names.
+      materialGroups: ["uph", "trim"],
+      materials: {
+        boucle:   { note: "Media room",          colours: [["Ivory","#EDE6D6"],["Oat","#D6C7AA"],["Pebble","#A79E90"],["Charcoal","#46423D"]] },
+        mohair:   { note: "Deep pile",           colours: [["Bottle green","#2F4A3A"],["Oxblood","#6B2A2A"],["Midnight","#1F2A44"],["Camel","#B08856"]] },
+        suede:    { note: "Non-reflective",      colours: [["Graphite","#3B3A38"],["Tobacco","#7A5536"],["Slate","#5E6670"]] },
+        alcantara:{ note: "Acoustically open",   colours: [["Black","#1E1E1E"],["Space grey","#5A5C60"],["Cognac","#8A5A35"]] },
+        nubuck:   { note: "Brushed finish",      colours: [["Sand","#C2AD8C"],["Espresso","#4A3426"],["Storm","#5F656B"]] },
+        semianil: { note: "Full-grain hide",     colours: [["Cognac","#8B4F2A"],["Chestnut","#5C3A24"],["Black","#1C1B1A"],["Taupe","#8F8070"]] },
+        stripe:   { note: "Paul Smith textile",  colours: [["Signature stripe","#2E3A59,#C2412F,#E3B23C,#3F7D6E,#E9E3D6"]] },
+        walnut:   { note: "Turned + oiled",      colours: [["Walnut","#5B3A24"]] },
+        oak:      { note: "Veneer-matched",      colours: [["Fumed oak","#6E5A45"]] },
+        brass:    { note: "Trim + inlay",        colours: [["Brushed brass","#B89257"]] }
+      },
       options: [
         { id: "mech", name: "Mechanism", choices: [
           { id: "relax", name: "Relax dual motorised", add: 0 },
@@ -69,6 +95,11 @@ window.CATALOGUE = {
       tagline: "German home-cinema seating and media room sofas, built from modular elements.",
       website: "https://www.moovia.de",
       color: "#4F5E73",
+      materialGroups: ["uph"],
+      materials: {
+        fabric:  { note: "Woven textile", colours: [["Anthracite","#3A3B3D"],["Stone","#B9B1A3"],["Ivory","#E8E2D5"],["Navy","#2A3550"],["Moss","#59624A"]] },
+        leather: { note: "Full-grain hide",  colours: [["Nero","#1D1C1B"],["Midnight","#232B3A"],["Cognac","#8A5430"],["Taupe","#8C7E6E"],["Cream","#E5DCC8"]] }
+      },
       options: [
         { id: "mech", name: "Motorisation", choices: [
           { id: "single", name: "Single drive", add: 0 },
@@ -79,10 +110,11 @@ window.CATALOGUE = {
           { id: "fabric",  name: "Kvadrat / Dekoma fabric", add: 0 },
           { id: "leather", name: "Italian leather",         add: 55000 }
         ]},
+        // armW (inches) is used by the room planner to work out row width.
         { id: "arm", name: "Armrest width", choices: [
-          { id: "std",  name: "Standard", add: 0 },
-          { id: "narrow", name: "Narrow (small rooms)", add: 0 },
-          { id: "wide", name: "Extended", add: 18000 }
+          { id: "std",  name: "Standard", add: 0, armW: 6 },
+          { id: "narrow", name: "Narrow (small rooms)", add: 0, armW: 4 },
+          { id: "wide", name: "Extended", add: 18000, armW: 9 }
         ]}
       ]
     },
@@ -91,6 +123,12 @@ window.CATALOGUE = {
       tagline: "Living room, home theatre and lounger recliners, customised to the last detail.",
       website: "https://www.littlenap.in",
       color: "#A4473A",
+      materialGroups: ["uph"],
+      materials: {
+        fabric:      { note: "Soft-touch weave",  colours: [["Beige","#CDBB9E"],["Grey","#8E8D8A"],["Navy","#2D3A55"],["Maroon","#6A2730"]] },
+        leatherette: { note: "Easy-clean",        colours: [["Black","#1F1E1D"],["Brown","#5A3B28"],["Tan","#A06B3E"],["Ivory","#E7DECD"]] },
+        leather:     { note: "Genuine leather",   colours: [["Black","#1D1C1B"],["Oxblood","#5E2226"],["Cognac","#8A5430"],["Grey","#6D6A66"]] }
+      },
       options: [
         { id: "uph", name: "Upholstery", choices: [
           { id: "fabric",      name: "Fabric",          add: 0 },
@@ -152,13 +190,16 @@ window.CATALOGUE = {
    *   variants:    seating options with their base price
    *   only:        (optional) limit a brand option group to some choices, e.g. { mech: ["fixed"] }
    *   accessories: ids from the accessory list above
-   *   image:       optional, e.g. "images/atelier.jpg". Leave "" to show a line drawing.
+   *   size:        (home theatre models) inches: seat width between arms, one arm,
+ *                upright depth, reclined footprint depth, back height. Used by the room planner.
+ *   image:       optional, e.g. "images/atelier.jpg". Leave "" to show a line drawing.
    */
   models: [
     // ---------------- SEATLAB ----------------
     {
       id: "sl-atelier", brand: "seatlab", code: "SL-01", name: "Atelier",
       collection: "Home theatre", profile: "highback", image: "",
+      size: { seatW: 23, armW: 6.5, depth: 40, reclined: 68, height: 42 },
       description: "Precision-engineered high-back seating for private residential cinemas.",
       features: ["High-back module, 23\" wide", "Dual-motorised recline", "Armrests in 6.5\" and 13\" widths"],
       variants: [
@@ -172,6 +213,7 @@ window.CATALOGUE = {
     {
       id: "sl-continuum", brand: "seatlab", code: "SL-02", name: "Continuum",
       collection: "Home theatre", profile: "lowback", image: "",
+      size: { seatW: 33, armW: 6.5, depth: 40, reclined: 66, height: 33 },
       description: "Low-profile modular lounge seating that keeps the room and the sound field uninterrupted.",
       features: ["Low-back lounge module, 39\" wide", "Same dual-motorised mechanism", "Supplied joined or as separate units"],
       variants: [
@@ -184,6 +226,7 @@ window.CATALOGUE = {
     {
       id: "sl-monolith", brand: "seatlab", code: "SL-03", name: "Monolith",
       collection: "Home theatre", profile: "deep", image: "",
+      size: { seatW: 26, armW: 6.5, depth: 42, reclined: 72, height: 43 },
       description: "Deep seats and generous width for long screenings.",
       features: ["Deep, wide seat", "Dual-motorised recline", "Made in standard and custom widths"],
       variants: [
@@ -196,6 +239,7 @@ window.CATALOGUE = {
     {
       id: "sl-muse", brand: "seatlab", code: "SL-04", name: "Muse",
       collection: "Home theatre", profile: "highback", image: "",
+      size: { seatW: 23, armW: 6.5, depth: 40, reclined: 68, height: 42 },
       description: "Tailored in signature Paul Smith textiles, where bold colour meets exacting craft.",
       features: ["Paul Smith textile upholstery", "Dual-motorised recline", "Hand-finished"],
       variants: [
@@ -209,7 +253,8 @@ window.CATALOGUE = {
     // ---------------- MOOVIA : home theatre seating ----------------
     {
       id: "mv-rome", brand: "moovia", code: "MV-ROME", name: "Rome",
-      collection: "Home theatre", profile: "highback", image: "",
+      collection: "Home theatre", profile: "highback", image: "images/models/mv-rome.jpg",
+      size: { seatW: 24, armW: 6, depth: 41, reclined: 70, height: 43 },
       description: "Home theatre seat from the moovia® collection, built from sectional elements.",
       features: ["Modular: straight or curved rows", "Adjustable head-, back- and footrest", "Recliner or space-saving incliner"],
       variants: [
@@ -223,6 +268,7 @@ window.CATALOGUE = {
     {
       id: "mv-venice", brand: "moovia", code: "MV-VENICE", name: "Venice",
       collection: "Home theatre", profile: "highback", image: "",
+      size: { seatW: 24, armW: 6, depth: 41, reclined: 70, height: 43 },
       description: "Home theatre seat from the moovia® collection, built from sectional elements.",
       features: ["Modular: straight or curved rows", "Adjustable head-, back- and footrest", "Choice of armrest widths"],
       variants: [
@@ -236,6 +282,7 @@ window.CATALOGUE = {
     {
       id: "mv-chesterfield", brand: "moovia", code: "MV-CHESTER", name: "Chesterfield",
       collection: "Home theatre", profile: "deep", image: "",
+      size: { seatW: 25, armW: 7, depth: 42, reclined: 71, height: 40 },
       description: "Classic Chesterfield styling with modern home cinema functions.",
       features: ["Chesterfield styling", "Motorised recline", "Modular rows"],
       variants: [
@@ -247,7 +294,8 @@ window.CATALOGUE = {
     },
     {
       id: "mv-marbella", brand: "moovia", code: "MV-MARBELLA", name: "Marbella",
-      collection: "Home theatre", profile: "lowback", image: "",
+      collection: "Home theatre", profile: "lowback", image: "images/models/mv-marbella.jpg",
+      size: { seatW: 24, armW: 6, depth: 41, reclined: 70, height: 36 },
       description: "Offered both as home theatre seating and as a media room sofa.",
       features: ["Seat or sofa configuration", "Motorised recline", "Moodboard finishes available"],
       variants: [
@@ -259,6 +307,7 @@ window.CATALOGUE = {
     {
       id: "mv-dallas", brand: "moovia", code: "MV-DALLAS", name: "Dallas",
       collection: "Home theatre", profile: "highback", image: "",
+      size: { seatW: 24, armW: 6, depth: 41, reclined: 70, height: 43 },
       description: "Home theatre seat from the moovia® collection, built from sectional elements.",
       features: ["Modular: straight or curved rows", "Motorised recline", "Choice of armrest widths"],
       variants: [
@@ -271,6 +320,7 @@ window.CATALOGUE = {
     {
       id: "mv-stockholm", brand: "moovia", code: "MV-STOCKHOLM", name: "Stockholm",
       collection: "Home theatre", profile: "highback", image: "",
+      size: { seatW: 24, armW: 6, depth: 41, reclined: 70, height: 43 },
       description: "Home theatre seat from the moovia® collection, built from sectional elements.",
       features: ["Modular: straight or curved rows", "Motorised recline", "Ambient lighting options"],
       variants: [
@@ -283,6 +333,7 @@ window.CATALOGUE = {
     {
       id: "mv-ibiza", brand: "moovia", code: "MV-IBIZA", name: "Ibiza",
       collection: "Home theatre", profile: "lowback", image: "",
+      size: { seatW: 24, armW: 6, depth: 41, reclined: 70, height: 36 },
       description: "Home theatre seat from the moovia® collection, built from sectional elements.",
       features: ["Modular rows", "Motorised recline", "Chaise longue option"],
       variants: [
@@ -293,7 +344,8 @@ window.CATALOGUE = {
     },
     {
       id: "mv-milano", brand: "moovia", code: "MV-MILANO", name: "Milano",
-      collection: "Home theatre", profile: "lowback", image: "",
+      collection: "Home theatre", profile: "lowback", image: "images/models/mv-milano.jpg",
+      size: { seatW: 24, armW: 6, depth: 41, reclined: 70, height: 36 },
       description: "Offered both as home theatre seating and as a media room sofa.",
       features: ["Seat or sofa configuration", "Motorised recline", "Moodboard finishes available"],
       variants: [
@@ -305,6 +357,7 @@ window.CATALOGUE = {
     {
       id: "mv-boston", brand: "moovia", code: "MV-BOSTON", name: "Boston",
       collection: "Home theatre", profile: "highback", image: "",
+      size: { seatW: 24, armW: 6, depth: 41, reclined: 70, height: 43 },
       description: "Home theatre seat from the moovia® collection, built from sectional elements.",
       features: ["Modular: straight or curved rows", "Motorised recline", "Storage and cup holder options"],
       variants: [
@@ -317,6 +370,7 @@ window.CATALOGUE = {
     {
       id: "mv-berlin", brand: "moovia", code: "MV-BERLIN", name: "Berlin",
       collection: "Home theatre", profile: "highback", image: "",
+      size: { seatW: 24, armW: 6, depth: 41, reclined: 70, height: 43 },
       description: "Home theatre seat from the moovia® collection, built from sectional elements.",
       features: ["Modular: straight or curved rows", "Motorised recline", "Choice of armrest widths"],
       variants: [
@@ -512,6 +566,7 @@ window.CATALOGUE = {
     {
       id: "ln-crescent", brand: "littlenap", code: "LN-CRESCENT", name: "Crescent",
       collection: "Home theatre", profile: "highback", image: "",
+      size: { seatW: 22, armW: 7, depth: 39, reclined: 66, height: 41 },
       description: "Home theatre recliner for private cinemas.",
       features: ["Home theatre seating", "Single seats or rows"],
       variants: [ { name: "1 seater", seats: 1, price: 92000 }, { name: "Row of 2", seats: 2, price: 178000 }, { name: "Row of 3", seats: 3, price: 262000 }, { name: "Row of 4", seats: 4, price: 344000 } ],
@@ -520,6 +575,7 @@ window.CATALOGUE = {
     {
       id: "ln-millor", brand: "littlenap", code: "LN-MILLOR", name: "Millor",
       collection: "Home theatre", profile: "highback", image: "",
+      size: { seatW: 22, armW: 7, depth: 39, reclined: 66, height: 41 },
       description: "Home theatre recliner.",
       features: ["Home theatre seating", "Single seats or rows"],
       variants: [ { name: "1 seater", seats: 1, price: 98000 }, { name: "Row of 3", seats: 3, price: 282000 }, { name: "Row of 4", seats: 4, price: 370000 } ],
@@ -528,6 +584,7 @@ window.CATALOGUE = {
     {
       id: "ln-ritz", brand: "littlenap", code: "LN-RITZ", name: "Ritz",
       collection: "Home theatre", profile: "deep", image: "",
+      size: { seatW: 24, armW: 7, depth: 41, reclined: 69, height: 41 },
       description: "Home theatre seating.",
       features: ["Home theatre seating", "Single seats or rows"],
       variants: [ { name: "1 seater", seats: 1, price: 115000 }, { name: "Row of 3", seats: 3, price: 332000 }, { name: "Row of 4", seats: 4, price: 436000 } ],
@@ -536,6 +593,7 @@ window.CATALOGUE = {
     {
       id: "ln-verve", brand: "littlenap", code: "LN-VERVE", name: "Verve",
       collection: "Home theatre", profile: "highback", image: "",
+      size: { seatW: 22, armW: 7, depth: 39, reclined: 66, height: 41 },
       description: "Theatre recliner.",
       features: ["Home theatre seating", "Single seats or rows"],
       variants: [ { name: "1 seater", seats: 1, price: 86000 }, { name: "Row of 3", seats: 3, price: 248000 } ],
@@ -544,6 +602,7 @@ window.CATALOGUE = {
     {
       id: "ln-primus", brand: "littlenap", code: "LN-PRIMUS", name: "Primus",
       collection: "Home theatre", profile: "highback", image: "",
+      size: { seatW: 22, armW: 7, depth: 39, reclined: 66, height: 41 },
       description: "Theatre recliner.",
       features: ["Home theatre seating", "Single seats or rows"],
       variants: [ { name: "1 seater", seats: 1, price: 104000 }, { name: "Row of 3", seats: 3, price: 300000 } ],
@@ -552,6 +611,7 @@ window.CATALOGUE = {
     {
       id: "ln-aderia", brand: "littlenap", code: "LN-ADERIA", name: "Aderia",
       collection: "Home theatre", profile: "lowback", image: "",
+      size: { seatW: 22, armW: 7, depth: 39, reclined: 66, height: 34 },
       description: "Modern recliner.",
       features: ["Home theatre seating"],
       variants: [ { name: "1 seater", seats: 1, price: 88000 }, { name: "Row of 3", seats: 3, price: 254000 } ],
@@ -560,6 +620,7 @@ window.CATALOGUE = {
     {
       id: "ln-ebony", brand: "littlenap", code: "LN-EBONY", name: "Ebony",
       collection: "Home theatre", profile: "deep", image: "",
+      size: { seatW: 24, armW: 7, depth: 41, reclined: 69, height: 41 },
       description: "Ultra-premium multiplex recliner, also suited to large private theatres.",
       features: ["Multiplex grade", "Home theatre seating", "Single seats or rows"],
       variants: [ { name: "1 seater", seats: 1, price: 128000 }, { name: "Row of 4", seats: 4, price: 488000 } ],

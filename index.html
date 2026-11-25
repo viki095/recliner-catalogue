@@ -3,143 +3,154 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The Recliner Catalogue</title>
-  <meta name="description" content="Browse recliners and home cinema seating from Little Nap, Seatlab and Moovia, choose options and accessories, and see a tentative price.">
+  <title>Home Theatre Planner</title>
+  <meta name="description" content="Plan your home theatre seating: enter the room, set out the rows, choose a collection from Seatlab, Moovia or Little Nap, pick materials and accessories, and see a tentative price.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="planner.css">
   <link rel="icon" type="image/png" href="images/awicon-icon.png">
   <link rel="apple-touch-icon" href="images/awicon-icon.png">
 </head>
-<body>
+<body class="planner">
   <header class="site-header">
     <div class="wrap header-inner">
-      <a class="logo" href="#" id="logo" aria-label="Awicon Technologies">
+      <a class="logo" href="index.html" aria-label="Awicon Technologies">
         <picture>
           <source srcset="images/awicon-logo-white.png" media="(prefers-color-scheme: dark)">
           <img src="images/awicon-logo.png" alt="Awicon Technologies" width="480" height="240">
         </picture>
       </a>
-      <button class="shortlist-btn" id="openShortlist" type="button" aria-haspopup="dialog">
-        Shortlist <span class="count" id="shortlistCount">0</span>
-      </button>
+      <nav class="top-nav"><a href="index.html" aria-current="page">Plan a theatre</a><a href="models.html">All models</a></nav>
     </div>
   </header>
 
-  <main>
-    <section class="hero wrap">
-      <p class="eyebrow" id="eyebrow"></p>
-      <div class="hero-grid">
-        <h1 id="heroTitle"></h1>
-        <div>
-          <p class="lede">Every model from our three brands, in one place. Choose a seating size, mechanism, upholstery and accessories to see a tentative price, then send your shortlist to us.</p>
-          <p class="notice" id="sampleNotice" hidden>Model names are from each brand's website. Prices shown are sample figures for now.</p>
+  <main class="wrap">
+    <section class="p-hero">
+      <p class="eyebrow">Home theatre planner · Seatlab · Moovia · Little Nap</p>
+      <h1>Plan your theatre, seat by seat.</h1>
+      <p class="notice" id="sampleNotice" hidden>Prices, seat sizes and colour shades are sample figures for now.</p>
+    </section>
+
+    <ol class="stepper" id="stepper" aria-label="Steps"></ol>
+
+    <div class="p-layout">
+      <div class="p-main">
+        <!-- 1 Room -->
+        <section class="step" data-step="1" aria-labelledby="h1s">
+          <p class="eyebrow">Step 1 of 6</p>
+          <h2 id="h1s">Room dimensions</h2>
+          <p class="muted">Measure the room wall to wall. The screen goes on the front wall.</p>
+          <div class="unit-switch" role="radiogroup" aria-label="Units">
+            <label><input type="radio" name="unit" value="ft" checked><span>Feet</span></label>
+            <label><input type="radio" name="unit" value="m"><span>Metres</span></label>
+          </div>
+          <div class="dims">
+            <label class="dim-field"><span>Width <small>W</small></span><input type="number" inputmode="decimal" min="1" step="0.1" id="roomW"><em class="unit-lbl"></em></label>
+            <span class="times">×</span>
+            <label class="dim-field"><span>Depth <small>D</small></span><input type="number" inputmode="decimal" min="1" step="0.1" id="roomD"><em class="unit-lbl"></em></label>
+            <span class="times">×</span>
+            <label class="dim-field"><span>Height <small>H</small></span><input type="number" inputmode="decimal" min="1" step="0.1" id="roomH"><em class="unit-lbl"></em></label>
+          </div>
+          <p class="hint" id="roomHint"></p>
+        </section>
+
+        <!-- 2 Rows -->
+        <section class="step" data-step="2" aria-labelledby="h2s" hidden>
+          <p class="eyebrow">Step 2 of 6</p>
+          <h2 id="h2s">Number of rows</h2>
+          <p class="muted">Rows behind the first are raised on a riser so everyone sees the screen.</p>
+          <div class="big-choice" id="rowChoice" role="radiogroup" aria-label="Number of rows"></div>
+          <p class="hint" id="rowHint"></p>
+        </section>
+
+        <!-- 3 Seats per row -->
+        <section class="step" data-step="3" aria-labelledby="h3s" hidden>
+          <p class="eyebrow">Step 3 of 6</p>
+          <h2 id="h3s">Seats in each row</h2>
+          <p class="muted"><b>Straight arms</b> make a straight row. <b>Wedged arms</b> are tapered so the row curves towards the screen.</p>
+          <div class="row-cards" id="rowCards"></div>
+        </section>
+
+        <!-- 4 Collection -->
+        <section class="step" data-step="4" aria-labelledby="h4s" hidden>
+          <p class="eyebrow">Step 4 of 6</p>
+          <h2 id="h4s">Choose the collection</h2>
+          <div class="assign" id="assignTarget" role="radiogroup" aria-label="Choose for"></div>
+          <div class="brand-tabs" id="pBrandTabs" role="tablist"></div>
+          <div class="collections" id="collections"></div>
+          <h3 class="sub">Quantity</h3>
+          <div class="qty-rows" id="qtyRows"></div>
+        </section>
+
+        <!-- 5 Materials -->
+        <section class="step" data-step="5" aria-labelledby="h5s" hidden>
+          <p class="eyebrow">Step 5 of 6</p>
+          <h2 id="h5s">Materials and upholstery</h2>
+          <p class="muted">Colour on a screen is only a guide. We'll send physical samples before anything is made.</p>
+          <div id="materials"></div>
+        </section>
+
+        <!-- 6 Customise -->
+        <section class="step" data-step="6" aria-labelledby="h6s" hidden>
+          <p class="eyebrow">Step 6 of 6</p>
+          <h2 id="h6s">Customisations and accessories</h2>
+          <div id="customs"></div>
+        </section>
+
+        <!-- Summary -->
+        <section class="step" data-step="7" aria-labelledby="h7s" hidden>
+          <img class="print-logo" src="images/awicon-logo.png" alt="Awicon Technologies" width="480" height="240">
+          <p class="eyebrow">Your theatre</p>
+          <h2 id="h7s">Summary and tentative quote</h2>
+          <div id="summary"></div>
+          <div class="sum-actions">
+            <a class="primary" id="sendWhatsapp" target="_blank" rel="noopener">Send on WhatsApp</a>
+            <button type="button" class="ghost" id="copyQuote">Copy as text</button>
+            <button type="button" class="ghost" id="copyLink">Copy link to this plan</button>
+            <button type="button" class="ghost" id="printQuote">Print / PDF</button>
+          </div>
+          <button type="button" class="link danger" id="startOver">Start over</button>
+        </section>
+
+        <div class="step-nav">
+          <button type="button" class="ghost" id="backBtn">Back</button>
+          <button type="button" class="primary" id="nextBtn">Next</button>
         </div>
       </div>
-      <div class="rule"></div>
-    </section>
 
-    <section class="wrap controls" aria-label="Filters">
-      <div class="brand-tabs" id="brandTabs" role="tablist"></div>
-      <div class="filter-row">
-        <label class="field search">
-          <span class="sr">Search</span>
-          <input type="search" id="search" placeholder="Search model, collection or feature">
-        </label>
-        <label class="field">
-          <span class="sr">Collection</span>
-          <select id="typeFilter"></select>
-        </label>
-        <label class="field">
-          <span class="sr">Sort</span>
-          <select id="sort">
-            <option value="brand">Sort by brand</option>
-            <option value="price-asc">Price: low to high</option>
-            <option value="price-desc">Price: high to low</option>
-            <option value="name">Name A–Z</option>
-          </select>
-        </label>
-      </div>
-      <p class="result-count" id="resultCount" aria-live="polite"></p>
-    </section>
-
-    <section class="wrap" id="grid" aria-label="Models"></section>
+      <aside class="p-side" aria-label="Room plan">
+        <div class="side-card">
+          <div class="side-head">
+            <p class="eyebrow">Room plan</p>
+            <span class="muted small" id="planDims"></span>
+          </div>
+          <div class="plan" id="plan"></div>
+          <ul class="checks" id="checks"></ul>
+          <div class="side-total">
+            <span class="eyebrow">Tentative price</span>
+            <strong id="sideTotal">—</strong>
+            <small class="muted" id="sideSeats"></small>
+          </div>
+        </div>
+      </aside>
+    </div>
   </main>
 
   <footer class="site-footer">
     <div class="wrap">
       <p class="eyebrow">Note</p>
       <p id="priceNote"></p>
+      <p class="muted">The plan is a guide drawn to scale from typical seat sizes. We confirm exact dimensions on a site visit.</p>
       <p class="muted" id="contactLine"></p>
     </div>
   </footer>
 
-  <!-- Model detail / configurator -->
-  <dialog class="sheet" id="modelDialog" aria-labelledby="mTitle">
-    <form method="dialog" class="sheet-inner" id="modelForm">
-      <button class="close" value="close" aria-label="Close">×</button>
-      <div class="m-media">
-        <div class="m-draw" id="mMedia"></div>
-        <p class="caption" id="mCaption1">Side elevation · not to scale</p>
-        <div class="m-row" id="mRow"></div>
-        <p class="caption" id="mCaption2"></p>
-      </div>
-      <div class="m-body">
-        <p class="eyebrow" id="mBrand"></p>
-        <h2 id="mTitle"></h2>
-        <p class="m-desc" id="mDesc"></p>
-        <ul class="m-features" id="mFeatures"></ul>
-
-        <fieldset>
-          <legend>Seating</legend>
-          <div class="chips" id="mVariants"></div>
-        </fieldset>
-        <div id="mOptions"></div>
-        <fieldset>
-          <legend>Accessories</legend>
-          <div class="acc-list" id="mAccessories"></div>
-        </fieldset>
-
-        <div class="m-total">
-          <div>
-            <span class="eyebrow">Tentative price</span>
-            <strong id="mTotal"></strong>
-            <small class="muted" id="mBreakdown"></small>
-          </div>
-          <button class="primary" type="button" id="mAdd">Add to shortlist</button>
-        </div>
-        <button class="link" type="button" id="mShare">Copy link to this model</button>
-      </div>
-    </form>
-  </dialog>
-
-  <!-- Shortlist drawer -->
-  <dialog class="drawer" id="shortlistDialog" aria-labelledby="sTitle">
-    <div class="drawer-inner">
-      <div class="drawer-head">
-        <img class="print-logo" src="images/awicon-logo.png" alt="Awicon Technologies" width="480" height="240">
-        <p class="eyebrow">Your selection</p>
-        <h2 id="sTitle">Shortlist</h2>
-        <button class="close" type="button" id="closeShortlist" aria-label="Close">×</button>
-      </div>
-      <div class="drawer-list" id="shortlistItems"></div>
-      <div class="drawer-foot">
-        <div class="grand"><span class="eyebrow">Estimated total</span><strong id="grandTotal"></strong></div>
-        <p class="muted small" id="drawerNote"></p>
-        <div class="drawer-actions">
-          <a class="primary" id="sendWhatsapp" target="_blank" rel="noopener">Send on WhatsApp</a>
-          <button type="button" id="copyQuote">Copy as text</button>
-          <button type="button" id="printQuote">Print / PDF</button>
-        </div>
-        <button class="link danger" type="button" id="clearShortlist">Clear shortlist</button>
-      </div>
-    </div>
-  </dialog>
-
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="catalogue-data.js"></script>
-  <script src="app.js"></script>
+  <script src="drawings.js"></script>
+  <script src="planner.js"></script>
 </body>
 </html>
